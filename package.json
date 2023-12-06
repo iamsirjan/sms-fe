@@ -89,7 +89,28 @@
     "vite-plugin-checker": "^0.6.0",
     "vite-plugin-svgr": "^2.4.0"
   },
+  "engines": {
+    "node": ">= 14.17.0",
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.0.0"
+  },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-merge": "if [ $HUSKY_GIT_PARAMS = 'develop' ]; then yarn; fi"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "yarn eslint",
+      "lint:fix",
+      "yarn prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
