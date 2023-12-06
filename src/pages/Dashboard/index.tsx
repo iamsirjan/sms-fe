@@ -1,6 +1,6 @@
 import { BreadCrumb } from '@asheshDon/components/breadCrumb';
 import { DataTable } from '@asheshDon/components/dataTable';
-import { CellContext, PaginationState } from '@tanstack/react-table';
+import { PaginationState } from '@tanstack/react-table';
 import { useState } from 'react';
 
 const Dashboard = () => {
@@ -8,32 +8,33 @@ const Dashboard = () => {
     pageIndex: 0,
     pageSize: 10,
   });
+
   const col = [
     {
       header: 'S.N',
-      accessorFn: (_cell: CellContext<any, any>, index: number) => {
+      accessorFn: (_cell: unknown, index: number) => {
         return index + 1;
       },
     },
     {
       header: 'Name',
       accessorKey: 'first_name1',
-      accessorFn: (_cell: unknown) => {
-        return 'dummy data';
+      accessorFn: (_cell: unknown, index: number) => {
+        return index + 1;
       },
     },
     {
       header: 'Name',
       accessorKey: 'first_name2',
-      accessorFn: (_cell: unknown) => {
-        return 'dummy data';
+      accessorFn: (_cell: unknown, index: unknown) => {
+        return index;
       },
     },
     {
       header: 'Name',
       accessorKey: 'first_name3',
-      accessorFn: (_cell: unknown) => {
-        return 'dummy data';
+      accessorFn: (_cell: unknown, index: unknown) => {
+        return index;
       },
     },
   ];

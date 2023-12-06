@@ -3,7 +3,6 @@ import { Box } from '@chakra-ui/react';
 import Sidebar from '@asheshDon/components/sidebar/Sidebar';
 import useWindowSize from '@asheshDon/hooks/useWindowResize';
 import { SidebarState } from '@asheshDon/hooks/useContext';
-import { asheshDon_colors } from '@asheshDon/theme/color';
 
 // Define the possible layout widths
 const LAYOUT_WIDTHS = {

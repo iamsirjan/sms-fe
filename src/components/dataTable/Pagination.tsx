@@ -19,7 +19,7 @@ import { useMemo } from 'react';
 interface IPagination {
   isBackendPaginated?: boolean;
   pageIndex?: number;
-  table: Table<any>;
+  table: Table<unknown>;
   pageCount?: number;
 }
 

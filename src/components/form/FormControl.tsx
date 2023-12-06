@@ -7,6 +7,7 @@ import TextArea from './TextArea';
 import Editor from './Editor';
 import MultiSelect from './MultiSelect';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function FormControl(props: any) {
   const { control, ...rest } = props;
   switch (control) {

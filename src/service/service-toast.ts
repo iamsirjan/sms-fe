@@ -21,7 +21,7 @@ const toastFail = (message: string) => {
 };
 
 const toastPromise = (
-  promiseAction: Promise<any>,
+  promiseAction: Promise<unknown>,
   id?: string,
   loadingMessage?: string,
   successMessage?: string,

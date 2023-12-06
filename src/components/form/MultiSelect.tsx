@@ -87,7 +87,7 @@ interface IMultiSelect extends SelectProps {
   rules?: RegisterOptions;
   helperText?: string;
   isRequired?: boolean;
-  selectControl?: any;
+  selectControl?: undefined;
   style?: Record<string, string>;
   required?: boolean;
   multiValue?: { label: string; value: string }[];

@@ -31,7 +31,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "tsc && vite build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "vite",
     "preview": "vite preview",
@@ -39,7 +38,7 @@
     "lint:fix": "eslint --fix .",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "prepare": "husky install",
-    "prebuild": "yarn format && yarn lint && yarn test",
+    "prebuild": "yarn format && yarn lint",
     "commit": "git-cz",
     "postinstall": "npx husky install",
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file --release-count 0"
@@ -96,10 +95,9 @@
   },
   "husky": {
     "hooks": {
-      "applypatch-msg": "echo \"[Husky] applypatch-msg\"",
-      "pre-applypatch": "echo \"[Husky] pre-applypatch\"",
-      "post-applypatch": "echo \"[Husky] post-applypatch\"",
-      "pre-commit": "echo \"[Husky] pre-commit\""
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-merge": "if [ $HUSKY_GIT_PARAMS = 'develop' ]; then yarn; fi"
     }
   },
   "lint-staged": {

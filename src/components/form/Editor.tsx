@@ -52,14 +52,16 @@ const Editor = ({
           removePlugins: ['EasyImage', 'ImageUpload', 'MediaEmbed'],
         }}
         onReady={(editor) => {
-          // You can store the "editor" and use when it is needed.
-          editor?.editing.view.change((writer) => {
-            writer.setStyle(
-              'height',
-              `${height ?? 200}px`,
-              editor.editing.view.document.getRoot(),
-            );
-          });
+          if (editor?.editing?.view?.document) {
+            const rootElement = editor.editing.view.document.getRoot();
+
+            if (rootElement) {
+              editor.editing.view.change((writer) =>
+                writer.setStyle('height', `${height ?? 200}px`, rootElement),
+              );
+            }
+          }
+
           onInit && onInit(editor);
         }}
         onChange={(_event, editor) => {

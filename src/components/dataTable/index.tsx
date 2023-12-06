@@ -30,8 +30,8 @@ import { useEffect, useMemo, useState } from 'react';
 import Pagination from './Pagination';
 
 export type DataTableProps = {
-  data: Record<string, any>[];
-  columns: ColumnDef<any, any>[];
+  data: Record<string, unknown>[];
+  columns: ColumnDef<unknown, unknown>[];
   isLoading?: boolean;
   pinColumnAccess?: boolean;
   pagination?: {
@@ -41,15 +41,14 @@ export type DataTableProps = {
       pageIndex: number;
       pageSize: number;
     };
-    onChangePagination?: (paginationData: Updater<PaginationState>) => void;
+    onChangePagination?: (_paginationData: Updater<PaginationState>) => void;
   };
   filter?: {
     globalFilter: string;
   };
   sortingColumn?: string;
-  setTable?: (table: any) => void;
+  setTable?: (_table: unknown) => void;
 };
-
 export function DataTable({
   data,
   columns,
@@ -71,7 +70,6 @@ export function DataTable({
   }, [sortingColumn]);
 
   // const totalPage = Math.ceil(pagination?.pageCount ?? 0);
-
   const paginationParams = useMemo(
     () =>
       pagination?.manual
