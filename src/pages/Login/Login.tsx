@@ -21,7 +21,7 @@ export interface LoginDetails {
   password: string;
 }
 
-const defaultValues: LoginDetails = {
+const defaultValues: any = {
   email: '',
   password: '',
 };
