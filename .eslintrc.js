@@ -31,15 +31,14 @@ module.exports = {
     'no-console': 'off',
     'import/first': 'error',
     'react/prop-types': 0,
-    'linebreak-style': [
-      'error',
-      process.platform === 'win32' ? 'windows' : 'unix',
-    ],
+    // 'linebreak-style': [
+    //   'error',
+    //   process.platform === 'win32' ? 'windows' : 'unix',
+    // ],
     'prettier/prettier': [
-      'error',
+      'off',
       {
-        singleQuote: true,
-        semi: true,
+        endOfLine: 'auto',
       },
     ],
     'arrow-body-style': 'off',

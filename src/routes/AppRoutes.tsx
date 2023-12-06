@@ -19,7 +19,7 @@ const routes = [
     element: <Login />,
   },
 ];
-const protectedRoutes = [];
+// const protectedRoutes = [];
 
 const AppRoutes = () => {
   return useRoutes(routes);
