@@ -31,10 +31,6 @@ module.exports = {
     'no-console': 'off',
     'import/first': 'error',
     'react/prop-types': 0,
-    // 'linebreak-style': [
-    //   'error',
-    //   process.platform === 'win32' ? 'windows' : 'unix',
-    // ],
     'prettier/prettier': [
       'off',
       {
@@ -46,6 +42,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/ban-ts-comment': 2,
-    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-explicit-any': 2,
   },
 };
