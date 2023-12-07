@@ -8,7 +8,7 @@ import {
 import ReactSelect from 'react-select';
 import { RegisterOptions } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
-import { asheshDon_colors } from '@asheshDon/theme/color';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { useTranslation } from 'react-i18next';
 import { ISelectOption } from './Select';
 
@@ -41,7 +41,9 @@ const MultiSelect = ({
               <FormLabel htmlFor={name} fontWeight={400} fontSize={'14px'}>
                 {label}
                 {required && (
-                  <span style={{ color: asheshDon_colors.red }}>&nbsp;*</span>
+                  <span style={{ color: codeHimalaya_colors.red }}>
+                    &nbsp;*
+                  </span>
                 )}
               </FormLabel>
             )}
@@ -59,8 +61,8 @@ const MultiSelect = ({
                   ...baseStyles,
                   minHeight: '50px',
                   borderColor: error
-                    ? asheshDon_colors.red
-                    : asheshDon_colors.gray_text,
+                    ? codeHimalaya_colors.red
+                    : codeHimalaya_colors.gray_text,
                   borderRadius: '8px',
                   borderWidth: error ? '2px' : '1px',
                   ...style,
@@ -78,7 +80,7 @@ const MultiSelect = ({
   );
 };
 
-interface IMultiSelect extends SelectProps {
+export interface IMultiSelect extends SelectProps {
   placeholder?: string;
   options: ISelectOption[];
   label?: string;

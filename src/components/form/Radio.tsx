@@ -8,7 +8,7 @@ import {
   RadioGroup,
   RadioProps,
 } from '@chakra-ui/react';
-import { asheshDon_colors } from '@asheshDon/theme/color';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { useState } from 'react';
 import { RegisterOptions, UseFormRegister, FieldValues } from 'react-hook-form';
 
@@ -34,7 +34,7 @@ const Radio = ({
         <FormLabel
           fontWeight={400}
           fontSize={'14px'}
-          color={asheshDon_colors.black}
+          color={codeHimalaya_colors.black}
         >
           {label}:
         </FormLabel>

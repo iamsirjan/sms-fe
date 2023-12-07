@@ -14,13 +14,13 @@ export default defineConfig({
   resolve: {
     alias: {
       src: path.resolve('src/'),
-      '@asheshDon': path.resolve('src'),
-      '@asheshDon/icons': path.resolve('components/common/icons'),
-      '@asheshDon/components': path.resolve('components'),
-      '@asheshDon/theme': path.resolve('theme'),
-      '@asheshDon/assets': path.resolve('assets'),
-      '@asheshDon/routes': path.resolve('routes'),
-      '@asheshDon/hooks': path.resolve('hooks'),
+      '@codeHimalaya': path.resolve('src'),
+      '@codeHimalaya/icons': path.resolve('components/common/icons'),
+      '@codeHimalaya/components': path.resolve('components'),
+      '@codeHimalaya/theme': path.resolve('theme'),
+      '@codeHimalaya/assets': path.resolve('assets'),
+      '@codeHimalaya/routes': path.resolve('routes'),
+      '@codeHimalaya/hooks': path.resolve('hooks'),
     },
   },
 });

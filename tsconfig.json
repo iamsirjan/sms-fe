@@ -20,14 +20,14 @@
     "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@asheshDon/assets/*": ["assets/*"],
-      "@asheshDon/hooks/*": ["hooks/*"],
-      "@asheshDon/components/*": ["components/*"],
-      "@asheshDon/pages/*": ["pages/*"],
-      "@asheshDon/providers/*": ["providers/*"],
-      "@asheshDon/routes/*": ["routes/*"],
-      "@asheshDon/service/*": ["service/*"],
-      "@asheshDon/theme/*": ["theme/*"]
+      "@codeHimalaya/assets/*": ["assets/*"],
+      "@codeHimalaya/hooks/*": ["hooks/*"],
+      "@codeHimalaya/components/*": ["components/*"],
+      "@codeHimalaya/pages/*": ["pages/*"],
+      "@codeHimalaya/providers/*": ["providers/*"],
+      "@codeHimalaya/routes/*": ["routes/*"],
+      "@codeHimalaya/service/*": ["service/*"],
+      "@codeHimalaya/theme/*": ["theme/*"]
     }
   },
   "include": ["src", "types.ts"],

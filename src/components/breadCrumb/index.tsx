@@ -10,9 +10,9 @@ import {
   Divider,
   Icon,
 } from '@chakra-ui/react';
-import { NotificationIcon } from '@asheshDon/assets/svgs';
-import { getSidebarState } from '@asheshDon/components/layouts/Layout';
-import { asheshDon_colors } from '@asheshDon/theme/color';
+import { NotificationIcon } from '@codeHimalaya/assets/svgs';
+import { getSidebarState } from '@codeHimalaya/components/layouts/Layout';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -40,7 +40,7 @@ export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
               <Flex alignItems={'center'}>
                 <Text
                   fontWeight={700}
-                  color={asheshDon_colors.primary}
+                  color={codeHimalaya_colors.primary}
                   fontSize={{ base: '22px', md: '32px' }}
                   _hover={{}}
                   onClick={() => navigate(title.route)}
@@ -50,7 +50,7 @@ export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
                 {items.length != 0 && (
                   <Divider
                     orientation="vertical"
-                    borderColor={asheshDon_colors.black}
+                    borderColor={codeHimalaya_colors.black}
                     height={'30px'}
                     mx={2}
                     borderWidth="1px"
@@ -62,14 +62,14 @@ export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
           {items.map((item, i) => (
             <BreadcrumbItem key={i}>
               <BreadcrumbLink onClick={() => navigate(item.route)}>
-                <Text fontWeight={700} color={asheshDon_colors.primary}>
+                <Text fontWeight={700} color={codeHimalaya_colors.primary}>
                   {item.name}
                 </Text>
               </BreadcrumbLink>
               {items.length - 1 !== i && (
                 <Icon
                   as={ChevronRightIcon}
-                  color={asheshDon_colors.light_gray_text}
+                  color={codeHimalaya_colors.light_gray_text}
                   fontSize="xl"
                   pb={0.5}
                   ml={2}
@@ -79,7 +79,7 @@ export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
           ))}
         </Breadcrumb>
         <Flex
-          bgColor={asheshDon_colors.white}
+          bgColor={codeHimalaya_colors.white}
           borderRadius={'30px'}
           width={'48px'}
           height={'48px'}

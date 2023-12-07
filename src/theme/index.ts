@@ -1,5 +1,5 @@
 import { extendTheme } from '@chakra-ui/react';
-import { asheshDon_colors } from './color';
+import { codeHimalaya_colors } from './color';
 import { buttonTheme } from './button';
 
 export const theme = extendTheme({
@@ -38,7 +38,7 @@ export const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bgColor: asheshDon_colors.secondary,
+        bgColor: codeHimalaya_colors.secondary,
         fontFamily: "'Urbanist', sans-serif",
       },
     },

@@ -1,6 +1,6 @@
-import { LoginIcon } from '@asheshDon/assets/svgs';
-import FormControl from '@asheshDon/components/form/FormControl';
-import { asheshDon_colors } from '@asheshDon/theme/color';
+import { LoginIcon } from '@codeHimalaya/assets/svgs';
+import FormControl from '@codeHimalaya/components/form/FormControl';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import {
   Box,
   Button,
@@ -14,7 +14,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 // import { yupResolver } from '@hookform/resolvers/yup';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { toastSuccess } from '@asheshDon/service/service-toast';
+import { toastSuccess } from '@codeHimalaya/service/service-toast';
 
 export interface LoginDetails {
   email: string;
@@ -76,14 +76,14 @@ const Login = () => {
             <Flex mt={6}>
               <Text
                 fontSize={'20px'}
-                color={asheshDon_colors.black}
+                color={codeHimalaya_colors.black}
                 fontWeight={400}
               >
                 {'Welcome to'}&nbsp;
               </Text>
               <Text
                 fontSize={'20px'}
-                color={asheshDon_colors.primary}
+                color={codeHimalaya_colors.primary}
                 mb={1}
                 fontWeight={400}
               >
@@ -98,24 +98,28 @@ const Login = () => {
               <VStack pt={6} spacing={8}>
                 <FormControl
                   control="input"
-                  size="lg"
-                  type="email"
-                  register={register}
-                  placeholder={'Email'}
-                  label="Enter Your Email"
-                  name="email"
-                  error={errors?.email?.message ?? ''}
+                  {...{
+                    size: 'lg',
+                    type: 'email',
+                    register,
+                    placeholder: 'Email',
+                    label: 'Enter Your Email',
+                    name: 'email',
+                    error: errors?.email?.message ?? '',
+                  }}
                 />
                 <FormControl
                   control="password"
-                  register={register}
-                  size="lg"
-                  isVisible={isVisible}
-                  onToggleVisibility={onToggleVisibility}
-                  name="password"
-                  placeholder={'Password'}
-                  label="Enter your Password"
-                  error={errors?.password?.message ?? ''}
+                  {...{
+                    register,
+                    size: 'lg',
+                    isVisible,
+                    onToggleVisibility: onToggleVisibility,
+                    name: 'password',
+                    placeholder: 'Password',
+                    label: 'Enter your Password',
+                    error: errors?.password?.message ?? '',
+                  }}
                 />
 
                 <Button
@@ -132,7 +136,7 @@ const Login = () => {
         </Flex>
 
         <Box flex={1}>
-          <Flex direction={'column'} color={asheshDon_colors.white}>
+          <Flex direction={'column'} color={codeHimalaya_colors.white}>
             <LoginIcon style={{ width: '100%', height: 'auto' }} />
           </Flex>
         </Box>

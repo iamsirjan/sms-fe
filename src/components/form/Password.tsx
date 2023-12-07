@@ -1,9 +1,8 @@
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
-import { IconButton } from '@chakra-ui/react';
-import { asheshDon_colors } from '@asheshDon/theme/color';
+import { IconButton, InputProps } from '@chakra-ui/react';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import FormControl from './FormControl';
-import { UseFormRegister, FieldValues } from 'react-hook-form';
 
 enum Type {
   TEXT = 'type',
@@ -19,39 +18,31 @@ const PasswordViewIcon = ({ onToggle, isVisible }: ISetPasswordViewIcon) => {
       sx={{
         bgColor: 'transparent',
         '&:focus': { outline: 'none' },
-        color: asheshDon_colors.black,
+        color: codeHimalaya_colors.black,
         '&:hover': {
           bgColor: 'transparent',
-          color: asheshDon_colors.primary,
+          color: codeHimalaya_colors.primary,
         },
       }}
     />
   );
 };
 
-const Password = ({
-  register,
-  isVisible,
-  error,
-  onToggleVisibility,
-  name,
-  placeholder,
-  ...rest
-}: IPassword) => {
+const Password = ({ isVisible, onToggleVisibility, ...rest }: IPassword) => {
   return (
     <FormControl
       control="input"
-      register={register}
-      size="lg"
-      type={isVisible ? Type.TEXT : Type.PASSWORD}
-      name={name}
-      placeholder={placeholder}
-      error={error}
-      required
-      endIcons={
-        <PasswordViewIcon onToggle={onToggleVisibility} isVisible={isVisible} />
-      }
-      {...rest}
+      {...{
+        type: isVisible ? Type.TEXT : Type.PASSWORD,
+        required: true,
+        ...rest,
+        endIcons: (
+          <PasswordViewIcon
+            onToggle={onToggleVisibility}
+            isVisible={isVisible}
+          />
+        ),
+      }}
     />
   );
 };
@@ -61,13 +52,9 @@ interface ISetPasswordViewIcon {
   isVisible: boolean;
 }
 
-export interface IPassword<TFieldValues extends FieldValues = FieldValues> {
-  register: UseFormRegister<TFieldValues>;
+export interface IPassword extends InputProps {
   isVisible: boolean;
-  error?: string;
   onToggleVisibility: () => void;
-  name: string;
-  placeholder?: string;
 }
 
 export default Password;

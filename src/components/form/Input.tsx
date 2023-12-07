@@ -9,7 +9,7 @@ import {
   InputLeftElement,
   InputRightElement,
 } from '@chakra-ui/react';
-import { asheshDon_colors } from '@asheshDon/theme/color';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { RegisterOptions, UseFormRegister, FieldValues } from 'react-hook-form';
 
 const Input = ({
@@ -46,7 +46,7 @@ const Input = ({
         >
           {label}
           {required && (
-            <span style={{ color: asheshDon_colors.black }}>&nbsp;*</span>
+            <span style={{ color: codeHimalaya_colors.black }}>&nbsp;*</span>
           )}
         </FormLabel>
       )}

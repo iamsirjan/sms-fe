@@ -1,4 +1,4 @@
-export const asheshDon_colors = {
+export const codeHimalaya_colors = {
   primary: ' #1C4E80',
   primary_dark: '#2B3674',
   primary_light: '#585fCD33',

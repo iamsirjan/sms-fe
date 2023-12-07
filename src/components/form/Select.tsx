@@ -6,7 +6,7 @@ import {
   Select as ChakraSelect,
   SelectProps,
 } from '@chakra-ui/react';
-import { asheshDon_colors } from '@asheshDon/theme/color';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { RegisterOptions, UseFormRegister, FieldValues } from 'react-hook-form';
 
 const Select = ({
@@ -29,7 +29,7 @@ const Select = ({
         <FormLabel htmlFor={name} fontWeight={600} fontSize={'18px'}>
           {label}{' '}
           {required && (
-            <span style={{ color: asheshDon_colors.red }}>&nbsp;*</span>
+            <span style={{ color: codeHimalaya_colors.red }}>&nbsp;*</span>
           )}
         </FormLabel>
       )}

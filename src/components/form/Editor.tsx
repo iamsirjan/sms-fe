@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import { asheshDon_colors } from '@asheshDon/theme/color';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 
 export interface IEditor {
   data?: string;
@@ -39,7 +39,7 @@ const Editor = ({
         <FormLabel fontWeight={600} fontSize={'18px'}>
           {label}
           {required && (
-            <span style={{ color: asheshDon_colors.black }}>&nbsp;*</span>
+            <span style={{ color: codeHimalaya_colors.black }}>&nbsp;*</span>
           )}
         </FormLabel>
       )}

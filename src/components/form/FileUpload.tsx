@@ -4,11 +4,10 @@ import {
   Input as ChakraInput,
   FormErrorMessage,
   FormHelperText,
-  InputProps,
   InputGroup,
 } from '@chakra-ui/react';
-import { asheshDon_colors } from '@asheshDon/theme/color';
-import { RegisterOptions, UseFormRegister, FieldValues } from 'react-hook-form';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
+import { IInput } from './Input';
 
 const FileUpload = ({
   label,
@@ -33,7 +32,7 @@ const FileUpload = ({
         <FormLabel htmlFor={name} fontWeight={600} fontSize={'18px'}>
           {label}
           {required && (
-            <span style={{ color: asheshDon_colors.black }}>&nbsp;*</span>
+            <span style={{ color: codeHimalaya_colors.black }}>&nbsp;*</span>
           )}
         </FormLabel>
       )}
@@ -60,20 +59,5 @@ const FileUpload = ({
     </FormControl>
   );
 };
-export interface IInput<TFieldValues extends FieldValues = FieldValues>
-  extends InputProps {
-  label?: string;
-  helperText?: string;
-  error?: string;
-  name: string;
-  register: UseFormRegister<TFieldValues>;
-  rules?: RegisterOptions;
-  isRequired?: boolean;
-  isDisabled?: boolean;
-  startIcon?: React.ReactNode;
-  endIcons?: React.ReactNode;
-  onIconClick?: () => void;
-  required?: boolean;
-  labelDisabled?: string;
-}
+
 export default FileUpload;

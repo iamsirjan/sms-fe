@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Flex, Text, Icon } from '@chakra-ui/react';
 import Item from './Item';
-import { asheshDon_colors } from '@asheshDon/theme/color';
-import { RightArrowIcon } from '@asheshDon/assets/svgs';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
+import { RightArrowIcon } from '@codeHimalaya/assets/svgs';
 
 const NavItem = ({ name, to, child, icon, isCollapse, visible }: INavItem) => {
   const match =
@@ -29,22 +29,22 @@ const NavItem = ({ name, to, child, icon, isCollapse, visible }: INavItem) => {
               mx={4}
               mb={3}
               borderRadius={8}
-              bgColor={activeParent ? asheshDon_colors.primary : ''}
-              color={activeParent ? asheshDon_colors.white : ''}
+              bgColor={activeParent ? codeHimalaya_colors.primary : ''}
+              color={activeParent ? codeHimalaya_colors.white : ''}
               transition="all ease-in-out"
               cursor="pointer"
               sx={{
                 'svg path': {
                   transition: 'all ease-in-out',
-                  fill: `${activeParent ? asheshDon_colors.white : ''}`,
+                  fill: `${activeParent ? codeHimalaya_colors.white : ''}`,
                 },
                 '&:hover': {
                   transition: 'all ease-in-out',
-                  bgColor: asheshDon_colors.primary,
-                  color: asheshDon_colors.white,
+                  bgColor: codeHimalaya_colors.primary,
+                  color: codeHimalaya_colors.white,
                   'svg path': {
                     transition: 'all ease-in-out',
-                    fill: asheshDon_colors.white,
+                    fill: codeHimalaya_colors.white,
                   },
                 },
               }}
@@ -59,7 +59,7 @@ const NavItem = ({ name, to, child, icon, isCollapse, visible }: INavItem) => {
                   '& *': {
                     '&:hover': {
                       transition: 'all ease-in-out',
-                      color: asheshDon_colors.white,
+                      color: codeHimalaya_colors.white,
                     },
                   },
                 }}

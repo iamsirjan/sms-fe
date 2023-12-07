@@ -1,5 +1,5 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
-import { asheshDon_colors } from './color';
+import { codeHimalaya_colors } from './color';
 
 const baseStyles = {
   px: 3,
@@ -8,17 +8,17 @@ const baseStyles = {
 };
 
 const primary = defineStyle({
-  background: asheshDon_colors.primary,
-  color: asheshDon_colors.white,
+  background: codeHimalaya_colors.primary,
+  color: codeHimalaya_colors.white,
   // transition: "all 300ms ease-in-out",
   ...baseStyles,
   _disabled: {
-    background: `${asheshDon_colors.primary} !important`,
-    color: `${asheshDon_colors.white} !important`,
+    background: `${codeHimalaya_colors.primary} !important`,
+    color: `${codeHimalaya_colors.white} !important`,
   },
   _hover: {
-    background: asheshDon_colors.secondary,
-    color: asheshDon_colors.primary,
+    background: codeHimalaya_colors.secondary,
+    color: codeHimalaya_colors.primary,
     // border: "1px !important",
   },
 });
@@ -26,43 +26,43 @@ const primary = defineStyle({
 const primaryLarge = defineStyle({
   ...primary,
   _hover: {
-    background: asheshDon_colors.secondary,
-    color: asheshDon_colors.primary,
+    background: codeHimalaya_colors.secondary,
+    color: codeHimalaya_colors.primary,
     border: '1px !important',
   },
 });
 
 const primaryOutline = defineStyle({
-  border: `1px solid  ${asheshDon_colors.primary}`,
-  color: asheshDon_colors.primary,
+  border: `1px solid  ${codeHimalaya_colors.primary}`,
+  color: codeHimalaya_colors.primary,
   ...baseStyles,
   _hover: {
-    background: asheshDon_colors.secondary,
-    color: asheshDon_colors.primary,
+    background: codeHimalaya_colors.secondary,
+    color: codeHimalaya_colors.primary,
   },
 });
 
 const reset = defineStyle({
-  background: asheshDon_colors.reset_btn_bg,
-  color: asheshDon_colors.reset_btn_txt,
+  background: codeHimalaya_colors.reset_btn_bg,
+  color: codeHimalaya_colors.reset_btn_txt,
   ...baseStyles,
   // transition: "all 300ms ease-in-out",
   _hover: {
-    background: asheshDon_colors.reset_btn_txt,
-    color: asheshDon_colors.reset_btn_bg,
+    background: codeHimalaya_colors.reset_btn_txt,
+    color: codeHimalaya_colors.reset_btn_bg,
   },
 });
 
 const secondary = defineStyle({
-  background: asheshDon_colors.secondary,
-  color: asheshDon_colors.primary,
+  background: codeHimalaya_colors.secondary,
+  color: codeHimalaya_colors.primary,
   ...baseStyles,
   transition: 'all 300ms ease-in-out',
   _hover: {
-    background: asheshDon_colors.primary,
-    color: asheshDon_colors.white,
+    background: codeHimalaya_colors.primary,
+    color: codeHimalaya_colors.white,
     'svg path': {
-      stroke: asheshDon_colors.white,
+      stroke: codeHimalaya_colors.white,
     },
   },
 });
@@ -71,7 +71,7 @@ const ghost = defineStyle({
   ...baseStyles,
   _hover: {
     background: 'transparent',
-    color: asheshDon_colors.primary,
+    color: codeHimalaya_colors.primary,
   },
   _active: {
     background: 'transparent',

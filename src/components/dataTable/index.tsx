@@ -11,7 +11,7 @@ import {
   Thead,
   Tr,
 } from '@chakra-ui/react';
-import { asheshDon_colors } from '@asheshDon/theme/color';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import {
   ColumnDef,
   GroupingState,
@@ -171,8 +171,8 @@ export function DataTable({
                       colSpan={header.colSpan}
                       textTransform="capitalize"
                       whiteSpace="nowrap"
-                      bg={asheshDon_colors.primary}
-                      color={asheshDon_colors.white}
+                      bg={codeHimalaya_colors.primary}
+                      color={codeHimalaya_colors.white}
                       fontSize={14}
                       style={{
                         width: `${columns[index]?.size}%` ?? header.getSize(),

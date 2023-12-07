@@ -1,7 +1,7 @@
 import { Link as RouterLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ListItem, Link, Flex, Text } from '@chakra-ui/react';
-import { asheshDon_colors } from '@asheshDon/theme/color';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 
 const Item = ({
   name,
@@ -21,7 +21,7 @@ const Item = ({
   const { t } = useTranslation();
   if (location.pathname === to) active = true;
   return (
-    <Link as={RouterLink} to={to} color={asheshDon_colors.white}>
+    <Link as={RouterLink} to={to} color={codeHimalaya_colors.white}>
       <ListItem
         display={'flex'}
         mr={4}
@@ -32,35 +32,35 @@ const Item = ({
         bgColor={
           active
             ? isChild
-              ? asheshDon_colors.secondary
-              : asheshDon_colors.primary
+              ? codeHimalaya_colors.secondary
+              : codeHimalaya_colors.primary
             : ''
         }
         transition="all ease-in-out"
         color={
           active
             ? isChild
-              ? asheshDon_colors.light_gray_text
-              : asheshDon_colors.white
-            : asheshDon_colors.light_gray_text
+              ? codeHimalaya_colors.light_gray_text
+              : codeHimalaya_colors.white
+            : codeHimalaya_colors.light_gray_text
         }
         sx={{
           'svg path': {
             transition: 'all ease-in-out',
-            fill: `${active ? asheshDon_colors.white : ''}`,
+            fill: `${active ? codeHimalaya_colors.white : ''}`,
           },
           '&:hover': {
             transition: 'all ease-in-out',
             textDecoration: 'none',
             color: isChild
-              ? asheshDon_colors.light_gray_text
-              : asheshDon_colors.white,
+              ? codeHimalaya_colors.light_gray_text
+              : codeHimalaya_colors.white,
             bgColor: isChild
-              ? asheshDon_colors.secondary
-              : asheshDon_colors.primary,
+              ? codeHimalaya_colors.secondary
+              : codeHimalaya_colors.primary,
             'svg path': {
               transition: 'all ease-in-out',
-              fill: `${name !== 'Logout' ? asheshDon_colors.white : ''}`,
+              fill: `${name !== 'Logout' ? codeHimalaya_colors.white : ''}`,
             },
           },
         }}

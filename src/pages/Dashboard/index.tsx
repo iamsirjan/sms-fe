@@ -1,5 +1,5 @@
-import { BreadCrumb } from '@asheshDon/components/breadCrumb';
-import { DataTable } from '@asheshDon/components/dataTable';
+import { BreadCrumb } from '@codeHimalaya/components/breadCrumb';
+import { DataTable } from '@codeHimalaya/components/dataTable';
 import { PaginationState } from '@tanstack/react-table';
 import { useState } from 'react';
 

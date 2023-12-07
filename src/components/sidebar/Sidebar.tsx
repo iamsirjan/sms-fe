@@ -1,11 +1,11 @@
 import { Box, List, ListItem, Link } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 // import { FiInfo } from "react-icons/fi";
-import { NAVIGATION_ROUTES } from '@asheshDon/routes/routes.constant';
-import { asheshDon_colors } from '@asheshDon/theme/color';
+import { NAVIGATION_ROUTES } from '@codeHimalaya/routes/routes.constant';
+import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import NavItem from './NavItem';
 
-import { DashboardIcon, LogoutIcon } from '@asheshDon/assets/svgs';
+import { DashboardIcon, LogoutIcon } from '@codeHimalaya/assets/svgs';
 
 const Sidebar = ({
   isCollapse,
@@ -33,11 +33,11 @@ const Sidebar = ({
     <Box
       w={width}
       maxW={width}
-      color={asheshDon_colors.light_gray_text}
+      color={codeHimalaya_colors.light_gray_text}
       sx={{
         '&::-webkit-scrollbar': {
           width: '3px',
-          backgroundColor: asheshDon_colors.primary,
+          backgroundColor: codeHimalaya_colors.primary,
         },
       }}
       transitionDuration="0.3s"
@@ -46,7 +46,7 @@ const Sidebar = ({
       overflowY={'auto'}
       onMouseEnter={onEnterSidebar}
       onMouseLeave={onExitSidebar}
-      bgColor={asheshDon_colors.white}
+      bgColor={codeHimalaya_colors.white}
     >
       <List>
         <ListItem mx={3} my={6}>
