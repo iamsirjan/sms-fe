@@ -3,7 +3,9 @@
 This is a dashboard starter template for a React project with Vite as the build tool and .
 
 # to setup boiler plate
+
 use: yarn create react-app project-name --template codehimalaya_fe
+
 # Features
 
 - React 18 with hooks
@@ -20,4 +22,4 @@ use: yarn create react-app project-name --template codehimalaya_fe
 - CommitLint and Conventional Changelog CLI for generating changelogs
 - zustand for state management
 - @tanstack/react-table for creating datatable
-
+- husky precommit hooks to restrict type any, console and unused variables
