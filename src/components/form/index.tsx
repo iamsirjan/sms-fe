@@ -1,3 +1,3 @@
 import { Input } from './input';
-
-export { Input };
+import FileUpload from './FileUpload';
+export { Input, FileUpload };

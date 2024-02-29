@@ -1,4 +1,4 @@
-import { FormControlProps, InputProps } from '@chakra-ui/react';
+import { FormControlProps, InputProps, TextareaProps } from '@chakra-ui/react';
 import { FunctionComponent, SVGProps } from 'react';
 import {
   Control,
@@ -7,7 +7,7 @@ import {
   Path,
 } from 'react-hook-form';
 
-export type IInputField<T extends FieldValues> = InputProps & {
+type IField<T extends FieldValues> = {
   control: Control<T, unknown>;
   name: Path<T>;
   label?: string;
@@ -20,6 +20,8 @@ export type IInputField<T extends FieldValues> = InputProps & {
     SVGProps<SVGSVGElement> & { title?: string | undefined }
   >;
 };
+export type IInputField<T extends FieldValues> = InputProps & IField<T>;
+export type ITextArea<T extends FieldValues> = TextareaProps & IField<T>;
 
 export type ICustomInput<T extends FieldValues> = InputProps &
   Pick<IInputField<T>, 'leftIcon' | 'rightIcon'> & {

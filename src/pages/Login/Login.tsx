@@ -1,18 +1,12 @@
 import { LoginIcon } from '@codeHimalaya/assets/svgs';
-import FormControl from '@codeHimalaya/components/form/FormControl';
+import { Input } from '@codeHimalaya/components/form';
 import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
-import {
-  Box,
-  Button,
-  Flex,
-  Text,
-  VStack,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Button, Flex, Text, VStack } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
+// TODO: finalize zod or yup
 // import * as yup from 'yup';
-import { z } from 'zod';
 // import { yupResolver } from '@hookform/resolvers/yup';
+import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toastSuccess } from '@codeHimalaya/service/service-toast';
 
@@ -26,6 +20,7 @@ const defaultValues: LoginDetails = {
   password: '',
 };
 
+/** YUP schema */
 // const schema = yup.object().shape({
 //   email: yup.string().required('Email is required'),
 //   password: yup.string().required('Password is required'),
@@ -37,14 +32,7 @@ const schema = z.object({
 });
 
 const Login = () => {
-  const { isOpen: isVisible, onToggle: onToggleVisibility } = useDisclosure();
-
-  const {
-    register,
-    handleSubmit,
-
-    formState: { errors },
-  } = useForm({
+  const { control, handleSubmit } = useForm({
     mode: 'onBlur',
     defaultValues: defaultValues,
     resolver: zodResolver(schema),
@@ -58,88 +46,55 @@ const Login = () => {
   };
   return (
     <Box
-      height={'100vh'}
       display="flex"
       justifyContent={'center'}
       alignItems="center"
+      height={{ base: 'auto', md: '100vh' }}
+      m={4}
     >
-      <Flex w={'100rem'} flexDirection={{ base: 'column-reverse', md: 'row' }}>
-        <Flex
-          flex={1}
-          flexDirection={'column'}
-          gap={4}
-          ml={{ base: '2rem', lg: '3rem', xl: '6rem' }}
-          mr={{ base: '2rem', lg: '3rem', xl: '20rem' }}
-          py={'2rem'}
-        >
-          <Box>
-            <Flex mt={6}>
-              <Text
-                fontSize={'20px'}
-                color={codeHimalaya_colors.black}
-                fontWeight={400}
-              >
-                {'Welcome to'}&nbsp;
-              </Text>
-              <Text
-                fontSize={'20px'}
-                color={codeHimalaya_colors.primary}
-                mb={1}
-                fontWeight={400}
-              >
-                CodeHimalaya boilerplate code
-              </Text>
-            </Flex>
-            <Text fontSize={'32px'} fontWeight={600} mb={1}>
-              {'Sign in'}
+      <Flex
+        flexDirection={{ base: 'column-reverse', md: 'row' }}
+        justifyContent={'space-between'}
+      >
+        <Flex flex={1} flexDirection={'column'} justifyContent={'center'}>
+          <Flex
+            direction={{ base: 'column', md: 'row' }}
+            fontSize={'20px'}
+            fontWeight={400}
+          >
+            <Text color={codeHimalaya_colors.black}>{'Welcome to'}&nbsp;</Text>
+            <Text color={codeHimalaya_colors.primary}>
+              CodeHimalaya boilerplate code
             </Text>
+          </Flex>
+          <Text fontSize={'32px'} fontWeight={600}>
+            {'Login'}
+          </Text>
 
-            <form onSubmit={handleSubmit(onSubmitHandler)}>
-              <VStack pt={6} spacing={8}>
-                <FormControl
-                  control="input"
-                  {...{
-                    size: 'lg',
-                    type: 'email',
-                    register,
-                    placeholder: 'Email',
-                    label: 'Enter Your Email',
-                    name: 'email',
-                    error: errors?.email?.message ?? '',
-                  }}
-                />
-                <FormControl
-                  control="password"
-                  {...{
-                    register,
-                    size: 'lg',
-                    isVisible,
-                    onToggleVisibility: onToggleVisibility,
-                    name: 'password',
-                    placeholder: 'Password',
-                    label: 'Enter your Password',
-                    error: errors?.password?.message ?? '',
-                  }}
-                />
-
-                <Button
-                  type="submit"
-                  variant="primaryLarge"
-                  size="lg_fit"
-                  // isLoading={isLoading}
-                >
-                  {'Sign in'}
-                </Button>
-              </VStack>
-            </form>
-          </Box>
+          <form onSubmit={handleSubmit(onSubmitHandler)}>
+            <VStack pt={6} spacing={8}>
+              <Input name={'email'} label={'Email'} control={control} />
+              <Input
+                name={'password'}
+                label={'Password'}
+                type={'password'}
+                control={control}
+              />
+              <Button
+                type="submit"
+                variant="primaryLarge"
+                size="lg_fit"
+                // isLoading={isLoading}
+              >
+                {'Login'}
+              </Button>
+            </VStack>
+          </form>
         </Flex>
 
-        <Box flex={1}>
-          <Flex direction={'column'} color={codeHimalaya_colors.white}>
-            <LoginIcon style={{ width: '100%', height: 'auto' }} />
-          </Flex>
-        </Box>
+        <Flex flex={1}>
+          <LoginIcon style={{ width: '100%' }} />
+        </Flex>
       </Flex>
     </Box>
   );
