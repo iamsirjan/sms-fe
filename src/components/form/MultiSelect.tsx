@@ -38,7 +38,7 @@ const MultiSelect = ({
         return (
           <FormControl isInvalid={!!error} isRequired={isRequired}>
             {label && (
-              <FormLabel htmlFor={name} fontWeight={400} fontSize={'14px'}>
+              <FormLabel htmlFor={name} fontWeight={400} fontSize={'sm'}>
                 {label}
                 {required && (
                   <span style={{ color: codeHimalaya_colors.red }}>
@@ -62,7 +62,7 @@ const MultiSelect = ({
                   minHeight: '50px',
                   borderColor: error
                     ? codeHimalaya_colors.red
-                    : codeHimalaya_colors.gray_text,
+                    : codeHimalaya_colors.gray[600],
                   borderRadius: '8px',
                   borderWidth: error ? '2px' : '1px',
                   ...style,

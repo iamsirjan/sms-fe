@@ -153,7 +153,7 @@
 //                 <>
 //                   <ImagePlaceholder />
 //                   <Heading
-//                     fontSize={'14px'}
+//                     fontSize={'sm'}
 //                     display="flex"
 //                     justifyContent={'center'}
 //                     gap={1}

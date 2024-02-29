@@ -2,134 +2,55 @@ import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
 import { codeHimalaya_colors } from './color';
 
 const baseStyles = {
-  px: 3,
-  py: 4,
-  borderRadius: 8,
+  px: 4,
+  borderRadius: '16px',
+  transition: 'all 300ms ease-in-out',
 };
 
 const primary = defineStyle({
-  background: codeHimalaya_colors.primary,
-  color: codeHimalaya_colors.white,
-  // transition: "all 300ms ease-in-out",
-  ...baseStyles,
+  background: 'primary.500',
+  color: 'white',
   _disabled: {
-    background: `${codeHimalaya_colors.primary} !important`,
-    color: `${codeHimalaya_colors.white} !important`,
+    background: `primary.500 !important`,
+    color: `white !important`,
   },
   _hover: {
-    background: codeHimalaya_colors.secondary,
-    color: codeHimalaya_colors.primary,
-    // border: "1px !important",
+    background: 'primary.400',
   },
-});
-
-const primaryLarge = defineStyle({
-  ...primary,
-  _hover: {
-    background: codeHimalaya_colors.secondary,
-    color: codeHimalaya_colors.primary,
-    border: '1px !important',
-  },
-});
-
-const primaryOutline = defineStyle({
-  border: `1px solid  ${codeHimalaya_colors.primary}`,
-  color: codeHimalaya_colors.primary,
   ...baseStyles,
-  _hover: {
-    background: codeHimalaya_colors.secondary,
-    color: codeHimalaya_colors.primary,
-  },
 });
 
-const reset = defineStyle({
-  background: codeHimalaya_colors.reset_btn_bg,
-  color: codeHimalaya_colors.reset_btn_txt,
+const outline = defineStyle({
   ...baseStyles,
-  // transition: "all 300ms ease-in-out",
-  _hover: {
-    background: codeHimalaya_colors.reset_btn_txt,
-    color: codeHimalaya_colors.reset_btn_bg,
+  color: 'primary.500',
+  _disabled: {
+    background: `primary.500 !important`,
+    color: `white !important`,
   },
-});
-
-const secondary = defineStyle({
-  background: codeHimalaya_colors.secondary,
-  color: codeHimalaya_colors.primary,
-  ...baseStyles,
-  transition: 'all 300ms ease-in-out',
-  _hover: {
-    background: codeHimalaya_colors.primary,
-    color: codeHimalaya_colors.white,
-    'svg path': {
-      stroke: codeHimalaya_colors.white,
-    },
-  },
-});
-
-const ghost = defineStyle({
-  ...baseStyles,
   _hover: {
     background: 'transparent',
-    color: codeHimalaya_colors.primary,
   },
-  _active: {
-    background: 'transparent',
-  },
-});
-
-const round = defineStyle({
-  ...secondary,
-  height: '34px',
-  width: '34px',
-  borderRadius: '50%',
+  border: `1px solid ${codeHimalaya_colors.primary[500]} !important`,
 });
 
 export const buttonTheme = defineStyleConfig({
   variants: {
     primary,
-    primaryLarge,
-    reset,
-    primaryOutline,
-    secondary,
-    round,
-    ghost,
+    outline,
   },
   sizes: {
+    xs: {
+      py: 1,
+    },
     sm: {
-      height: '40px',
-      fontSize: 14,
-      fontWeight: '500',
-      width: 97,
+      py: 2,
     },
     md: {
-      height: 12,
-      fontSize: 14,
-      fontWeight: '500',
-      width: 'fit-content',
-    },
-    fit: {
-      height: '40px',
-      fontSize: 14,
-      fontWeight: '500',
-      width: 'fit-content',
-    },
-    lg_fit: {
-      height: '50px',
-      fontSize: 16,
-      fontWeight: '600',
-      width: '100%',
+      py: 3,
     },
     lg: {
-      height: '40px',
-      fontSize: 16,
-      fontWeight: '600',
-      width: '317px',
+      py: 4,
     },
   },
-
-  defaultProps: {
-    size: 'sm',
-    variant: 'primary',
-  },
+  defaultProps: { variant: 'primary', size: 'lg' },
 });

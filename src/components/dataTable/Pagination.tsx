@@ -52,7 +52,7 @@ function Pagination({ isBackendPaginated, pageIndex, table }: IPagination) {
       <Center
         h={9}
         w={9}
-        _hover={{ bg: codeHimalaya_colors.orange, color: 'white' }}
+        _hover={{ bg: codeHimalaya_colors.secondary, color: 'white' }}
         borderRadius={20}
         cursor="pointer"
         userSelect="none"

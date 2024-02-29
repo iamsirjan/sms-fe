@@ -22,11 +22,7 @@ const FileUpload = <T extends FieldValues>({
 
   return (
     <FormControl isInvalid={!!error} isRequired={isRequired}>
-      {label && (
-        <FormLabel htmlFor={name} fontWeight={400} fontSize={'16px'}>
-          {label}
-        </FormLabel>
-      )}
+      {label && <FormLabel htmlFor={name}>{label}</FormLabel>}
       <InputGroup>
         <ChakraInput id={name} type={'file'} {...rest} {...field} />
       </InputGroup>
