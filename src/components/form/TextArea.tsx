@@ -1,26 +1,28 @@
 import {
   FormControl,
   FormErrorMessage,
-  FormHelperText,
   FormLabel,
   Textarea,
-  TextareaProps,
 } from '@chakra-ui/react';
 import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
-import { RegisterOptions, UseFormRegister, FieldValues } from 'react-hook-form';
-
-const TextArea = ({
-  label,
-  helperText,
+import { FieldValues, useController } from 'react-hook-form';
+import { ITextArea } from './input/interface';
+const TextArea = <T extends FieldValues>({
   name,
-  error = '',
-  rules,
-  register,
+  control,
+  label,
   isRequired,
   required,
   ...rest
-}: ITextArea) => {
+}: //TODO: isRequired and required both looks dubious
+ITextArea<T> & { isRequired?: boolean; required?: boolean }) => {
+  const {
+    field,
+    fieldState: { error },
+  } = useController({ name, control });
+
   return (
+    // TODO: work on the isRequired field
     <FormControl isInvalid={!!error} isRequired={isRequired}>
       {label && (
         <FormLabel htmlFor={name} fontWeight={600} fontSize={'18px'}>
@@ -30,30 +32,10 @@ const TextArea = ({
           )}
         </FormLabel>
       )}
-      <Textarea
-        sx={{ fontSize: 14, height: 120 }}
-        id={name}
-        size="xl"
-        resize={'none'}
-        {...register(name, rules)}
-        {...rest}
-      />
-      {helperText && <FormHelperText>{helperText}</FormHelperText>}
-      {error && <FormErrorMessage>{error}</FormErrorMessage>}
+      <Textarea resize={'none'} {...field} {...rest} />
+      {error && <FormErrorMessage>{error.message}</FormErrorMessage>}
     </FormControl>
   );
 };
-
-export interface ITextArea<TFieldValues extends FieldValues = FieldValues>
-  extends TextareaProps {
-  label?: string;
-  helperText?: string;
-  error?: string;
-  name: string;
-  register: UseFormRegister<TFieldValues>;
-  rules?: RegisterOptions;
-  isRequired?: boolean;
-  required?: boolean;
-}
 
 export default TextArea;

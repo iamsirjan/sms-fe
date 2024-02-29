@@ -1,6 +1,6 @@
 enum Type {
-  TEXT = 'TEXT',
-  PASSWORD = 'PASSWORD',
+  TEXT = 'text',
+  PASSWORD = 'password',
 }
 
 export { Type };

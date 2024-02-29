@@ -8,12 +8,19 @@ import { FieldValues } from 'react-hook-form';
 import { ICustomInput } from './interface';
 import { Type } from './constants';
 
-const Password = <T extends FieldValues>({ ...rest }: ICustomInput<T>) => {
+const Password = <T extends FieldValues>({
+  field,
+  ...rest
+}: ICustomInput<T>) => {
   const { isOpen: showPassword, onToggle: _setShowPassword } = useDisclosure();
 
   return (
     <InputGroup>
-      <ChakraInput type={showPassword ? Type.TEXT : Type.PASSWORD} {...rest} />
+      <ChakraInput
+        type={showPassword ? Type.TEXT : Type.PASSWORD}
+        {...field}
+        {...rest}
+      />
       <InputRightElement>
         {/* <Icon
             onClick={setShowPassword}
