@@ -26,7 +26,7 @@ const Select = ({
   return (
     <FormControl isInvalid={!!error} isRequired={isRequired}>
       {label && (
-        <FormLabel htmlFor={name} fontWeight={600} fontSize={'18px'}>
+        <FormLabel htmlFor={name}>
           {label}{' '}
           {required && (
             <span style={{ color: codeHimalaya_colors.red }}>&nbsp;*</span>
@@ -37,7 +37,7 @@ const Select = ({
         {...register(name, rules)}
         {...rest}
         id={name}
-        style={{ fontSize: '16px', color: '#718096' }}
+        style={{ fontSize: 'md', color: '#718096' }}
       >
         {placeholder && (
           <option value="" disabled={!enabled}>

@@ -25,7 +25,7 @@ ITextArea<T> & { isRequired?: boolean; required?: boolean }) => {
     // TODO: work on the isRequired field
     <FormControl isInvalid={!!error} isRequired={isRequired}>
       {label && (
-        <FormLabel htmlFor={name} fontWeight={600} fontSize={'18px'}>
+        <FormLabel htmlFor={name}>
           {label}
           {required && (
             <span style={{ color: codeHimalaya_colors.red }}>&nbsp;*</span>
