@@ -59,7 +59,7 @@ const Login = () => {
         <Flex flex={1} flexDirection={'column'} justifyContent={'center'}>
           <Flex
             direction={{ base: 'column', md: 'row' }}
-            fontSize={'xl'}
+            fontSize={'20px'}
             fontWeight={400}
           >
             <Text color={codeHimalaya_colors.black}>{'Welcome to'}&nbsp;</Text>
@@ -67,7 +67,7 @@ const Login = () => {
               CodeHimalaya boilerplate code
             </Text>
           </Flex>
-          <Text fontSize={'3xl'} fontWeight={600}>
+          <Text fontSize={'32px'} fontWeight={600}>
             {'Login'}
           </Text>
 

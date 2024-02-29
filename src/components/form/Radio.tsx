@@ -33,7 +33,7 @@ const Radio = ({
       {label && (
         <FormLabel
           fontWeight={400}
-          fontSize={'sm'}
+          fontSize={'14px'}
           color={codeHimalaya_colors.black}
         >
           {label}:
@@ -46,7 +46,7 @@ const Radio = ({
               <ChakraRadio
                 key={value}
                 value={value}
-                fontSize={'sm'}
+                fontSize={'14px'}
                 fontWeight={400}
                 id={name}
                 {...register(name, rules)}

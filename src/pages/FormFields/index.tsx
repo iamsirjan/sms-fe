@@ -4,7 +4,6 @@ import { FormProvider, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import TextArea from '@codeHimalaya/components/form/TextArea';
-import ButtonGroup from '../Buttons';
 
 const defaultValues: LoginDetails = {
   userName: '',
@@ -37,7 +36,7 @@ const FormFields = () => {
           <Input
             name={'password'}
             label={'Password'}
-            type={'password'}
+            type={'PASSWORD'}
             control={control}
           />
           <FileUpload
@@ -45,15 +44,10 @@ const FormFields = () => {
             control={control}
             label={'Upload file'}
           />
-          <TextArea
-            name={'description'}
-            label={'Description'}
-            control={control}
-          />
+          <TextArea name={'description'} control={control} />
           <Button type="submit">Submit</Button>
         </Flex>
       </form>
-      <ButtonGroup />
     </FormProvider>
   );
 };

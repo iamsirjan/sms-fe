@@ -40,8 +40,8 @@ export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
               <Flex alignItems={'center'}>
                 <Text
                   fontWeight={700}
-                  color={codeHimalaya_colors.primary[500]}
-                  fontSize={{ base: 'xl', md: '3xl' }}
+                  color={codeHimalaya_colors.primary}
+                  fontSize={{ base: '22px', md: '32px' }}
                   _hover={{}}
                   onClick={() => navigate(title.route)}
                 >
@@ -69,7 +69,7 @@ export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
               {items.length - 1 !== i && (
                 <Icon
                   as={ChevronRightIcon}
-                  color={codeHimalaya_colors.gray[200]}
+                  color={codeHimalaya_colors.light_gray_text}
                   fontSize="xl"
                   pb={0.5}
                   ml={2}

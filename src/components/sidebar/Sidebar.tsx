@@ -33,7 +33,7 @@ const Sidebar = ({
     <Box
       w={width}
       maxW={width}
-      color={codeHimalaya_colors.gray[300]}
+      color={codeHimalaya_colors.light_gray_text}
       sx={{
         '&::-webkit-scrollbar': {
           width: '3px',

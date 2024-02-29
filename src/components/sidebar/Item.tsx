@@ -40,9 +40,9 @@ const Item = ({
         color={
           active
             ? isChild
-              ? codeHimalaya_colors.gray[200]
+              ? codeHimalaya_colors.light_gray_text
               : codeHimalaya_colors.white
-            : codeHimalaya_colors.gray[200]
+            : codeHimalaya_colors.light_gray_text
         }
         sx={{
           'svg path': {
@@ -53,7 +53,7 @@ const Item = ({
             transition: 'all ease-in-out',
             textDecoration: 'none',
             color: isChild
-              ? codeHimalaya_colors.gray[200]
+              ? codeHimalaya_colors.light_gray_text
               : codeHimalaya_colors.white,
             bgColor: isChild
               ? codeHimalaya_colors.secondary
@@ -64,7 +64,7 @@ const Item = ({
             },
           },
         }}
-        fontSize="md"
+        fontSize="15px"
         fontWeight="600"
       >
         <Flex alignItems="center" justify={isCollapse ? 'center' : 'left'}>

@@ -48,7 +48,7 @@ const NavItem = ({ name, to, child, icon, isCollapse, visible }: INavItem) => {
                   },
                 },
               }}
-              fontSize="md"
+              fontSize="15px"
               fontWeight="600"
               onClick={() => setShowDropdown(!showDropdown)}
             >

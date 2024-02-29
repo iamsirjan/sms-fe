@@ -36,7 +36,7 @@ const Editor = ({
   return (
     <FormControl isInvalid={!!error}>
       {label && (
-        <FormLabel>
+        <FormLabel fontWeight={600} fontSize={'18px'}>
           {label}
           {required && (
             <span style={{ color: codeHimalaya_colors.black }}>&nbsp;*</span>
