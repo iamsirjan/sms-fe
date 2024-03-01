@@ -1,6 +1,5 @@
 import { LoginIcon } from '@codeHimalaya/assets/svgs';
 import { Input } from '@codeHimalaya/components/form';
-import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { Box, Button, Flex, Text, VStack } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 // TODO: finalize zod or yup
@@ -59,15 +58,13 @@ const Login = () => {
         <Flex flex={1} flexDirection={'column'} justifyContent={'center'}>
           <Flex
             direction={{ base: 'column', md: 'row' }}
-            fontSize={'20px'}
-            fontWeight={400}
+            fontSize={'xl'}
+            fontWeight={'normal'}
           >
-            <Text color={codeHimalaya_colors.black}>{'Welcome to'}&nbsp;</Text>
-            <Text color={codeHimalaya_colors.primary}>
-              CodeHimalaya boilerplate code
-            </Text>
+            <Text color={'black'}>{'Welcome to'}&nbsp;</Text>
+            <Text color={'primary.500'}>CodeHimalaya boilerplate code</Text>
           </Flex>
-          <Text fontSize={'32px'} fontWeight={600}>
+          <Text fontSize={'3xl'} fontWeight={'semibold'}>
             {'Login'}
           </Text>
 

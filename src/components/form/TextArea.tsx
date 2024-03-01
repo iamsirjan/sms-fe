@@ -4,7 +4,6 @@ import {
   FormLabel,
   Textarea,
 } from '@chakra-ui/react';
-import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { FieldValues, useController } from 'react-hook-form';
 import { ITextArea } from './input/interface';
 const TextArea = <T extends FieldValues>({
@@ -25,11 +24,9 @@ ITextArea<T> & { isRequired?: boolean; required?: boolean }) => {
     // TODO: work on the isRequired field
     <FormControl isInvalid={!!error} isRequired={isRequired}>
       {label && (
-        <FormLabel htmlFor={name} fontWeight={600} fontSize={'18px'}>
+        <FormLabel htmlFor={name}>
           {label}
-          {required && (
-            <span style={{ color: codeHimalaya_colors.red }}>&nbsp;*</span>
-          )}
+          {required && <span style={{ color: 'red' }}>&nbsp;*</span>}
         </FormLabel>
       )}
       <Textarea resize={'none'} {...field} {...rest} />

@@ -41,7 +41,9 @@
     "prebuild": "yarn format && yarn lint",
     "commit": "git-cz",
     "postinstall": "npx husky install",
-    "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file --release-count 0"
+    "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file --release-count 0",
+    "theme": "chakra-cli tokens src/theme/index.ts",
+    "theme:watch": "chakra-cli tokens src/theme/index.ts --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -59,6 +61,7 @@
     ]
   },
   "devDependencies": {
+    "@chakra-ui/cli": "^2.4.1",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@types/react": "^18.0.17",

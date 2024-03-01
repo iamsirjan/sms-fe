@@ -12,7 +12,6 @@ import {
 } from '@chakra-ui/react';
 import { NotificationIcon } from '@codeHimalaya/assets/svgs';
 import { getSidebarState } from '@codeHimalaya/components/layouts/Layout';
-import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -39,9 +38,9 @@ export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
             <BreadcrumbLink>
               <Flex alignItems={'center'}>
                 <Text
-                  fontWeight={700}
-                  color={codeHimalaya_colors.primary}
-                  fontSize={{ base: '22px', md: '32px' }}
+                  fontWeight={'bold'}
+                  color={'primary.500'}
+                  fontSize={{ base: 'xl', md: '3xl' }}
                   _hover={{}}
                   onClick={() => navigate(title.route)}
                 >
@@ -50,7 +49,7 @@ export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
                 {items.length != 0 && (
                   <Divider
                     orientation="vertical"
-                    borderColor={codeHimalaya_colors.black}
+                    borderColor={'black'}
                     height={'30px'}
                     mx={2}
                     borderWidth="1px"
@@ -62,14 +61,14 @@ export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
           {items.map((item, i) => (
             <BreadcrumbItem key={i}>
               <BreadcrumbLink onClick={() => navigate(item.route)}>
-                <Text fontWeight={700} color={codeHimalaya_colors.primary}>
+                <Text fontWeight={'bold'} color={'primary.500'}>
                   {item.name}
                 </Text>
               </BreadcrumbLink>
               {items.length - 1 !== i && (
                 <Icon
                   as={ChevronRightIcon}
-                  color={codeHimalaya_colors.light_gray_text}
+                  color={'gray.200'}
                   fontSize="xl"
                   pb={0.5}
                   ml={2}
@@ -79,8 +78,9 @@ export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
           ))}
         </Breadcrumb>
         <Flex
-          bgColor={codeHimalaya_colors.white}
-          borderRadius={'30px'}
+          bgColor={'white'}
+          // TODO: intelligence is not working for the value that is defined manually in the theme
+          borderRadius={'4xl'}
           width={'48px'}
           height={'48px'}
           alignItems={'center'}

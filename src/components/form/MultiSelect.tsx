@@ -8,7 +8,6 @@ import {
 import ReactSelect from 'react-select';
 import { RegisterOptions } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
-import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { useTranslation } from 'react-i18next';
 import { ISelectOption } from './Select';
 
@@ -38,13 +37,9 @@ const MultiSelect = ({
         return (
           <FormControl isInvalid={!!error} isRequired={isRequired}>
             {label && (
-              <FormLabel htmlFor={name} fontWeight={400} fontSize={'14px'}>
+              <FormLabel htmlFor={name} fontWeight={'normal'} fontSize={'sm'}>
                 {label}
-                {required && (
-                  <span style={{ color: codeHimalaya_colors.red }}>
-                    &nbsp;*
-                  </span>
-                )}
+                {required && <span style={{ color: 'red' }}>&nbsp;*</span>}
               </FormLabel>
             )}
             <ReactSelect
@@ -60,10 +55,8 @@ const MultiSelect = ({
                 control: (baseStyles) => ({
                   ...baseStyles,
                   minHeight: '50px',
-                  borderColor: error
-                    ? codeHimalaya_colors.red
-                    : codeHimalaya_colors.gray_text,
-                  borderRadius: '8px',
+                  borderColor: error ? 'red' : 'gray.600',
+                  borderRadius: '5xl',
                   borderWidth: error ? '2px' : '1px',
                   ...style,
                 }),

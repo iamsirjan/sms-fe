@@ -8,7 +8,6 @@ import {
   RadioGroup,
   RadioProps,
 } from '@chakra-ui/react';
-import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { useState } from 'react';
 import { RegisterOptions, UseFormRegister, FieldValues } from 'react-hook-form';
 
@@ -31,11 +30,7 @@ const Radio = ({
   return (
     <FormControl isInvalid={!!error} isRequired={isRequired}>
       {label && (
-        <FormLabel
-          fontWeight={400}
-          fontSize={'14px'}
-          color={codeHimalaya_colors.black}
-        >
+        <FormLabel fontWeight={'normal'} fontSize={'sm'} color={'black'}>
           {label}:
         </FormLabel>
       )}
@@ -46,8 +41,8 @@ const Radio = ({
               <ChakraRadio
                 key={value}
                 value={value}
-                fontSize={'14px'}
-                fontWeight={400}
+                fontSize={'sm'}
+                fontWeight={'normal'}
                 id={name}
                 {...register(name, rules)}
                 {...rest}

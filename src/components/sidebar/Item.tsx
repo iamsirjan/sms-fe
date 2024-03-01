@@ -1,7 +1,6 @@
 import { Link as RouterLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ListItem, Link, Flex, Text } from '@chakra-ui/react';
-import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 
 const Item = ({
   name,
@@ -21,51 +20,35 @@ const Item = ({
   const { t } = useTranslation();
   if (location.pathname === to) active = true;
   return (
-    <Link as={RouterLink} to={to} color={codeHimalaya_colors.white}>
+    <Link as={RouterLink} to={to} color={'white'}>
       <ListItem
         display={'flex'}
         mr={4}
         ml={isChild ? 10 : 4}
         p={2}
         mb={3}
-        borderRadius={9}
-        bgColor={
-          active
-            ? isChild
-              ? codeHimalaya_colors.secondary
-              : codeHimalaya_colors.primary
-            : ''
-        }
+        borderRadius={'md'}
+        bgColor={active ? (isChild ? 'secondary.500' : 'primary.500') : ''}
         transition="all ease-in-out"
-        color={
-          active
-            ? isChild
-              ? codeHimalaya_colors.light_gray_text
-              : codeHimalaya_colors.white
-            : codeHimalaya_colors.light_gray_text
-        }
+        color={active ? (isChild ? 'gray.200' : 'white') : 'gray.200'}
         sx={{
           'svg path': {
             transition: 'all ease-in-out',
-            fill: `${active ? codeHimalaya_colors.white : ''}`,
+            fill: `${active ? 'white' : ''}`,
           },
           '&:hover': {
             transition: 'all ease-in-out',
             textDecoration: 'none',
-            color: isChild
-              ? codeHimalaya_colors.light_gray_text
-              : codeHimalaya_colors.white,
-            bgColor: isChild
-              ? codeHimalaya_colors.secondary
-              : codeHimalaya_colors.primary,
+            color: isChild ? 'gray.200' : 'white',
+            bgColor: isChild ? 'secondary.500' : 'primary.500',
             'svg path': {
               transition: 'all ease-in-out',
-              fill: `${name !== 'Logout' ? codeHimalaya_colors.white : ''}`,
+              fill: `${name !== 'Logout' ? 'white' : ''}`,
             },
           },
         }}
-        fontSize="15px"
-        fontWeight="600"
+        fontSize="md"
+        fontWeight="semibold"
       >
         <Flex alignItems="center" justify={isCollapse ? 'center' : 'left'}>
           {icon}

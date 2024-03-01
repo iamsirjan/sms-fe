@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Flex, Text, Icon } from '@chakra-ui/react';
 import Item from './Item';
-import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { RightArrowIcon } from '@codeHimalaya/assets/svgs';
 
 const NavItem = ({ name, to, child, icon, isCollapse, visible }: INavItem) => {
@@ -28,28 +27,28 @@ const NavItem = ({ name, to, child, icon, isCollapse, visible }: INavItem) => {
               p={2}
               mx={4}
               mb={3}
-              borderRadius={8}
-              bgColor={activeParent ? codeHimalaya_colors.primary : ''}
-              color={activeParent ? codeHimalaya_colors.white : ''}
+              borderRadius={'md'}
+              bgColor={activeParent ? 'primary.500' : ''}
+              color={activeParent ? 'white' : ''}
               transition="all ease-in-out"
               cursor="pointer"
               sx={{
                 'svg path': {
                   transition: 'all ease-in-out',
-                  fill: `${activeParent ? codeHimalaya_colors.white : ''}`,
+                  fill: `${activeParent ? 'white' : ''}`,
                 },
                 '&:hover': {
                   transition: 'all ease-in-out',
-                  bgColor: codeHimalaya_colors.primary,
-                  color: codeHimalaya_colors.white,
+                  bgColor: 'primary.500',
+                  color: 'white',
                   'svg path': {
                     transition: 'all ease-in-out',
-                    fill: codeHimalaya_colors.white,
+                    fill: 'white',
                   },
                 },
               }}
-              fontSize="15px"
-              fontWeight="600"
+              fontSize="md"
+              fontWeight="semibold"
               onClick={() => setShowDropdown(!showDropdown)}
             >
               <Flex
@@ -59,7 +58,7 @@ const NavItem = ({ name, to, child, icon, isCollapse, visible }: INavItem) => {
                   '& *': {
                     '&:hover': {
                       transition: 'all ease-in-out',
-                      color: codeHimalaya_colors.white,
+                      color: 'white',
                     },
                   },
                 }}

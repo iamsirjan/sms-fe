@@ -153,7 +153,7 @@
 //                 <>
 //                   <ImagePlaceholder />
 //                   <Heading
-//                     fontSize={'14px'}
+//                     fontSize={'sm'}
 //                     display="flex"
 //                     justifyContent={'center'}
 //                     gap={1}
@@ -228,7 +228,7 @@
 //                         <HStack
 //                           bg={'gray.50'}
 //                           p={2}
-//                           borderRadius={4}
+//                           borderRadius={2xl}
 //                           onMouseEnter={() => {
 //                             onOpen();
 //                             setImageIndex(index);

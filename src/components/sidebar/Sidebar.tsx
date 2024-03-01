@@ -2,7 +2,6 @@ import { Box, List, ListItem, Link } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 // import { FiInfo } from "react-icons/fi";
 import { NAVIGATION_ROUTES } from '@codeHimalaya/routes/routes.constant';
-import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import NavItem from './NavItem';
 
 import { DashboardIcon, LogoutIcon } from '@codeHimalaya/assets/svgs';
@@ -33,11 +32,11 @@ const Sidebar = ({
     <Box
       w={width}
       maxW={width}
-      color={codeHimalaya_colors.light_gray_text}
+      color={'gray.300'}
       sx={{
         '&::-webkit-scrollbar': {
           width: '3px',
-          backgroundColor: codeHimalaya_colors.primary,
+          backgroundColor: 'primary.500',
         },
       }}
       transitionDuration="0.3s"
@@ -46,7 +45,7 @@ const Sidebar = ({
       overflowY={'auto'}
       onMouseEnter={onEnterSidebar}
       onMouseLeave={onExitSidebar}
-      bgColor={codeHimalaya_colors.white}
+      bgColor={'white'}
     >
       <List>
         <ListItem mx={3} my={6}>
