@@ -9,7 +9,7 @@ import ReactSelect from 'react-select';
 import { RegisterOptions } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { ISelectOption } from './Select';
+import { IOption } from './input/interface';
 
 const MultiSelect = ({
   label,
@@ -75,7 +75,7 @@ const MultiSelect = ({
 
 export interface IMultiSelect extends SelectProps {
   placeholder?: string;
-  options: ISelectOption[];
+  options: IOption[];
   label?: string;
   name?: string;
   error?: string;

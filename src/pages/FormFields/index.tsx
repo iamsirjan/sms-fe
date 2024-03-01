@@ -1,23 +1,34 @@
 import { Button, Flex } from '@chakra-ui/react';
-import { FileUpload, Input } from '@codeHimalaya/components/form';
+import {
+  FileUpload,
+  Input,
+  Select,
+  TextArea,
+} from '@codeHimalaya/components/form';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import TextArea from '@codeHimalaya/components/form/TextArea';
 import ButtonGroup from '../Buttons';
 
 const defaultValues: LoginDetails = {
   userName: '',
   password: '',
+  paymentGateway: '',
   fileUpload: '',
   description: '',
 };
 const schema = yup.object().shape({
   userName: yup.string().required('Username is required'),
   password: yup.string().required('Password is required'),
+  paymentGateway: yup.string().required('Payment gateway is required'),
   fileUpload: yup.string().required('File is required'),
   description: yup.string().required('Description is required'),
 });
+
+const options = [
+  { label: 'ESEWA', value: '0' },
+  { label: 'KHALTI', value: '1' },
+];
 
 const FormFields = () => {
   const formControl = useForm({
@@ -39,6 +50,12 @@ const FormFields = () => {
             label={'Password'}
             type={'password'}
             control={control}
+          />
+          <Select
+            name="paymentGateway"
+            label="Payment Gateway"
+            control={control}
+            options={options}
           />
           <FileUpload
             name={'fileUpload'}
@@ -62,6 +79,7 @@ export default FormFields;
 export interface LoginDetails {
   userName: string;
   password: string;
+  paymentGateway: string;
   fileUpload: string;
   description: string;
 }

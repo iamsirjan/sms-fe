@@ -1,3 +1,5 @@
 import { Input } from './input';
-import FileUpload from './FileUpload';
-export { Input, FileUpload };
+import { Select } from './Select';
+import { TextArea } from './TextArea';
+import { FileUpload } from './FileUpload';
+export { Input, Select, TextArea, FileUpload };

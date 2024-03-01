@@ -1,27 +1,28 @@
 import {
   FormControl,
   FormErrorMessage,
-  FormHelperText,
   FormLabel,
   Select as ChakraSelect,
-  SelectProps,
 } from '@chakra-ui/react';
-import { RegisterOptions, UseFormRegister, FieldValues } from 'react-hook-form';
+import { FieldValues, useController } from 'react-hook-form';
+import { ISelect } from './input/interface';
 
-const Select = ({
+const Select = <T extends FieldValues>({
   placeholder,
   label,
   options,
-  rules,
-  register,
-  helperText,
   name,
-  error,
   isRequired,
   required,
-  enabled,
+  enabled, // enables placeholder
+  control,
   ...rest
-}: ISelect) => {
+}: ISelect<T>) => {
+  const {
+    field,
+    fieldState: { error },
+  } = useController({ name, control });
+
   return (
     <FormControl isInvalid={!!error} isRequired={isRequired}>
       {label && (
@@ -29,12 +30,7 @@ const Select = ({
           {label} {required && <span style={{ color: 'red' }}>&nbsp;*</span>}
         </FormLabel>
       )}
-      <ChakraSelect
-        {...register(name, rules)}
-        {...rest}
-        id={name}
-        style={{ fontSize: 'md', color: '#718096' }}
-      >
+      <ChakraSelect control={control} {...rest} {...field} id={name}>
         {placeholder && (
           <option value="" disabled={!enabled}>
             {placeholder}
@@ -46,29 +42,9 @@ const Select = ({
           </option>
         ))}
       </ChakraSelect>
-      {helperText && <FormHelperText>{helperText}</FormHelperText>}
-      {error && <FormErrorMessage>{error}</FormErrorMessage>}
+      {error && <FormErrorMessage>{error.message}</FormErrorMessage>}
     </FormControl>
   );
 };
 
-export interface ISelect<TFieldValues extends FieldValues = FieldValues>
-  extends SelectProps {
-  placeholder?: string;
-  options: ISelectOption[];
-  label?: string;
-  name: string;
-  register: UseFormRegister<TFieldValues>;
-  error?: string;
-  rules?: RegisterOptions;
-  helperText?: string;
-  isRequired?: boolean;
-  required?: boolean;
-  enabled?: boolean;
-}
-export default Select;
-
-export interface ISelectOption {
-  label: string;
-  value: string;
-}
+export { Select };

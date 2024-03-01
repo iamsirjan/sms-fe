@@ -32,4 +32,4 @@ const FileUpload = <T extends FieldValues>({
   );
 };
 
-export default FileUpload;
+export { FileUpload };

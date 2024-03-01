@@ -19,6 +19,9 @@ const Input = <T extends FieldValues>(props: IInputField<T>) => {
     type,
     formControlProps,
     orientation = 'vertical',
+    /** ON using input isRequired, the schema error does not get trigger */
+    /** In such scenario this required can be used */
+    required,
     ...rest
   } = props;
 
@@ -33,7 +36,9 @@ const Input = <T extends FieldValues>(props: IInputField<T>) => {
     <FormControl isInvalid={!!error} {...formControlProps}>
       <Box display={orientation === 'horizontal' ? 'flex' : 'block'}>
         {label && formControlProps?.variant !== 'floating' && (
-          <FormLabel>{label}</FormLabel>
+          <FormLabel>
+            {label} {required && <span style={{ color: 'red' }}>&nbsp;*</span>}
+          </FormLabel>
         )}
         <FieldComponent field={field} {...rest} />
       </Box>

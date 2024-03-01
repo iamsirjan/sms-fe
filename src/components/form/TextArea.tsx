@@ -35,4 +35,4 @@ ITextArea<T> & { isRequired?: boolean; required?: boolean }) => {
   );
 };
 
-export default TextArea;
+export { TextArea };
