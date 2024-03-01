@@ -11,7 +11,6 @@ import {
   Thead,
   Tr,
 } from '@chakra-ui/react';
-import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import {
   ColumnDef,
   GroupingState,
@@ -144,10 +143,12 @@ export function DataTable({
           },
           '&::-webkit-scrollbar-thumb': {
             background: '#e9d8fd',
-            borderRadius: 20,
+            // TODO: try replacing this with full
+            // while refactoring the dataTable code
+            borderRadius: '7xl',
           },
         }}
-        borderRadius={8}
+        borderRadius={'5xl'}
       >
         <Table bg="white">
           <Thead>
@@ -171,8 +172,8 @@ export function DataTable({
                       colSpan={header.colSpan}
                       textTransform="capitalize"
                       whiteSpace="nowrap"
-                      bg={codeHimalaya_colors.primary}
-                      color={codeHimalaya_colors.white}
+                      bg={'primary.500'}
+                      color={'white'}
                       fontSize={14}
                       style={{
                         width: `${columns[index]?.size}%` ?? header.getSize(),

@@ -1,53 +1,29 @@
 import { extendTheme } from '@chakra-ui/react';
-import { codeHimalaya_colors } from './color';
+import { codeHimalaya_colors as colors } from './color';
 import { buttonTheme } from './button';
+import { fontSizes } from './fontsize';
 
 export const theme = extendTheme({
-  // components: {
-  //   Button: {
-  //     baseStyle: {
-  //       fontWeight: "bold", // Normally, it is "semibold"
-  //     },
-  //     sizes: {
-  //       xl: {
-  //         h: "56px",
-  //         fontSize: "lg",
-  //         px: "32px",
-  //       },
-  //     },
-  //     variants: {
-  //       "with-shadow": {
-  //         bg: "red.400",
-  //         boxShadow: "0 0 2px 2px #efdfde",
-  //       },
-  //       // solid: (props: StyleFunctionProps) => ({
-  //       //   bg: props.colorMode === 'dark' ? 'red.300' : 'red.500',
-  //       // }),
-  //       sm: {
-  //         bg: "teal.500",
-  //         fontSize: "md",
-  //       },
-  //     },
-  //     defaultProps: {
-  //       size: "lg", // default is md
-  //       variant: "sm", // default is solid
-  //       colorScheme: "green", // default is gray
-  //     },
-  //   },
-  // },
-  styles: {
-    global: {
-      body: {
-        bgColor: codeHimalaya_colors.secondary,
-        fontFamily: "'Urbanist', sans-serif",
-      },
-    },
-  },
-  a: {
-    _hover: {
-      textDecoration: 'none !important',
-      outline: 'none !important',
-      border: '0px !important',
+  fontSizes,
+  colors,
+  borderRadius: {
+    radii: {
+      none: '0',
+      sm: '0.125rem', //2px
+      base: '0.25rem', //4px
+      md: '0.375rem', //6px
+      lg: '0.5rem', //8px
+      xl: '0.75rem', //12px
+      '2xl': '1rem', //16px
+      '3xl': '1.5rem', //24px
+      /** These are values except for those in docs */
+      /* Please check if these values reflect any changes*/
+      '4xl': '1.875rem', //30px
+      '5xl': '2rem', //32px
+      '6xl': '2.25rem', // 36px
+      '7xl': '5rem', // 80px
+
+      full: '9999px',
     },
   },
   components: {

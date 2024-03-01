@@ -1,4 +1,3 @@
-import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import {
   ArrowBackIcon,
   ArrowForwardIcon,
@@ -39,8 +38,8 @@ function Pagination({ isBackendPaginated, pageIndex, table }: IPagination) {
       <Center
         h={9}
         w={9}
-        bg={codeHimalaya_colors.primary}
-        borderRadius={20}
+        bg={'primary.500'}
+        borderRadius={'full'}
         color="white"
         cursor={'default'}
         fontSize={'md'}
@@ -52,8 +51,8 @@ function Pagination({ isBackendPaginated, pageIndex, table }: IPagination) {
       <Center
         h={9}
         w={9}
-        _hover={{ bg: codeHimalaya_colors.orange, color: 'white' }}
-        borderRadius={20}
+        _hover={{ bg: 'secondary.500', color: 'white' }}
+        borderRadius={'full'}
         cursor="pointer"
         userSelect="none"
         onClick={() => {
@@ -77,7 +76,7 @@ function Pagination({ isBackendPaginated, pageIndex, table }: IPagination) {
           <IconButton
             variant={'outline'}
             aria-label="First Page"
-            borderRadius="10px"
+            borderRadius="lg"
             onClick={() => table.setPageIndex(0)}
             size="xs"
             fontSize={'lg'}
@@ -88,7 +87,7 @@ function Pagination({ isBackendPaginated, pageIndex, table }: IPagination) {
           <IconButton
             variant={'outline'}
             aria-label="Previous Page"
-            borderRadius="10px"
+            borderRadius="lg"
             onClick={() => table.previousPage()}
             size="xs"
             fontSize={'lg'}

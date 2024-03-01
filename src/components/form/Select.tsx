@@ -6,7 +6,6 @@ import {
   Select as ChakraSelect,
   SelectProps,
 } from '@chakra-ui/react';
-import { codeHimalaya_colors } from '@codeHimalaya/theme/color';
 import { RegisterOptions, UseFormRegister, FieldValues } from 'react-hook-form';
 
 const Select = ({
@@ -26,18 +25,15 @@ const Select = ({
   return (
     <FormControl isInvalid={!!error} isRequired={isRequired}>
       {label && (
-        <FormLabel htmlFor={name} fontWeight={600} fontSize={'18px'}>
-          {label}{' '}
-          {required && (
-            <span style={{ color: codeHimalaya_colors.red }}>&nbsp;*</span>
-          )}
+        <FormLabel htmlFor={name}>
+          {label} {required && <span style={{ color: 'red' }}>&nbsp;*</span>}
         </FormLabel>
       )}
       <ChakraSelect
         {...register(name, rules)}
         {...rest}
         id={name}
-        style={{ fontSize: '16px', color: '#718096' }}
+        style={{ fontSize: 'md', color: '#718096' }}
       >
         {placeholder && (
           <option value="" disabled={!enabled}>
