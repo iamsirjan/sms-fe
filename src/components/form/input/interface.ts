@@ -15,6 +15,14 @@ import {
 type IField<T extends FieldValues> = {
   control: Control<T, unknown>;
   name: Path<T>;
+} & IOptionField;
+
+type IMultiSelectField<T extends FieldValues> = {
+  control: Control<T, unknown>;
+  name: Path<T>;
+} & IOptionField;
+
+type IOptionField = {
   label?: string;
   formControlProps?: FormControlProps;
   orientation?: 'horizontal' | 'vertical';
@@ -26,11 +34,18 @@ type IField<T extends FieldValues> = {
   >;
   required?: boolean;
 };
+
 export type IInputField<T extends FieldValues> = InputProps & IField<T>;
+
 export type ISelect<T extends FieldValues> = SelectProps & {
   options: IOption[];
   enabled?: boolean;
 } & IField<T>;
+
+export type IMultiSelect<T extends FieldValues> = SelectProps & {
+  options: IOption[];
+} & IMultiSelectField<T>;
+
 export type ITextArea<T extends FieldValues> = TextareaProps & IField<T>;
 
 export type ICustomInput<T extends FieldValues> = InputProps &

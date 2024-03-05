@@ -9,13 +9,17 @@ import { FormProvider, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import ButtonGroup from '../Buttons';
+import MultiSelect from '@codeHimalaya/components/form/MultiSelect';
+import { IOption } from '@codeHimalaya/components/form/input/interface';
+import { foodOptions, options } from './options';
 
-const defaultValues: LoginDetails = {
+const defaultValues = {
   userName: '',
   password: '',
   paymentGateway: '',
   fileUpload: '',
   description: '',
+  food: [] as IOption[],
 };
 const schema = yup.object().shape({
   userName: yup.string().required('Username is required'),
@@ -23,12 +27,17 @@ const schema = yup.object().shape({
   paymentGateway: yup.string().required('Payment gateway is required'),
   fileUpload: yup.string().required('File is required'),
   description: yup.string().required('Description is required'),
+  food: yup
+    .array()
+    .of(
+      yup.object().shape({
+        label: yup.string().required(),
+        value: yup.string().required(),
+      }),
+    )
+    .min(1, 'Food is required')
+    .required(),
 });
-
-const options = [
-  { label: 'ESEWA', value: '0' },
-  { label: 'KHALTI', value: '1' },
-];
 
 const FormFields = () => {
   const formControl = useForm({
@@ -38,6 +47,7 @@ const FormFields = () => {
   const { control, handleSubmit } = formControl;
 
   const onSubmitHandler = (data: LoginDetails) => {
+    // console.log(JSON.stringify(data), 'DATA');
     alert(data);
   };
   return (
@@ -56,6 +66,12 @@ const FormFields = () => {
             label="Payment Gateway"
             control={control}
             options={options}
+          />
+          <MultiSelect
+            name="food"
+            label="Food"
+            control={control}
+            options={foodOptions}
           />
           <FileUpload
             name={'fileUpload'}
@@ -82,4 +98,5 @@ export interface LoginDetails {
   paymentGateway: string;
   fileUpload: string;
   description: string;
+  food: IOption[];
 }
