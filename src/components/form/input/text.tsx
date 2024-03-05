@@ -20,7 +20,7 @@ const Text = <T extends FieldValues>({
           <Icon as={leftIcon} />
         </InputLeftElement>
       )}
-      <ChakraInput height={'52px'} {...field} />
+      <ChakraInput {...field} />
       {rightIcon && (
         <InputRightElement>
           <Icon as={rightIcon} />

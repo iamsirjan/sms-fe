@@ -19,7 +19,6 @@ ITextArea<T> & { isRequired?: boolean; required?: boolean }) => {
     field,
     fieldState: { error },
   } = useController({ name, control });
-
   return (
     // TODO: work on the isRequired field
     <FormControl isInvalid={!!error} isRequired={isRequired}>
