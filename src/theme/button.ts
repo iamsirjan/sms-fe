@@ -8,29 +8,24 @@ const baseStyles = {
 };
 
 const primary = defineStyle({
+  ...baseStyles,
   background: codeHimalaya_colors.primary[500],
   color: 'white',
-  _disabled: {
-    background: `${codeHimalaya_colors.primary[500]} !important`,
-    color: `white !important`,
-  },
   _hover: {
     background: 'primary.400',
+    _disabled: {
+      backgroundColor: `${codeHimalaya_colors.primary[500]} `,
+    },
   },
-  ...baseStyles,
 });
 
 const outline = defineStyle({
   ...baseStyles,
   color: codeHimalaya_colors.primary[500],
-  _disabled: {
-    background: `${codeHimalaya_colors.primary[500]} !important`,
-    color: `white !important`,
-  },
   _hover: {
     background: 'transparent',
   },
-  border: `1px solid ${codeHimalaya_colors.primary[500]} !important`,
+  borderColor: codeHimalaya_colors.primary[500],
 });
 
 export const buttonTheme = defineStyleConfig({

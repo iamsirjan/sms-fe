@@ -79,8 +79,7 @@ const Login = () => {
               />
               <Button
                 type="submit"
-                variant="primaryLarge"
-                size="lg_fit"
+                width="full"
                 // isLoading={isLoading}
               >
                 {'Login'}

@@ -1,6 +1,7 @@
 export const NAVIGATION_ROUTES = {
   DASHBOARD: '/',
   /** NOTE: ------->  use "snake_case"  while naming the routes*/
-  FORM_FIELDS: '/form_fields',
+  BUTTON: '/button',
+  FORM_FIELD: '/form_field',
   LOGIN: '/login',
 };

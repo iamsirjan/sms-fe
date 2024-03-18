@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useContext } from 'react';
 import { Box } from '@chakra-ui/react';
-import Sidebar from '@codeHimalaya/components/sidebar/Sidebar';
+import Sidebar from '@codeHimalaya/components/SideBar';
 import useWindowSize from '@codeHimalaya/hooks/useWindowResize';
 import { SidebarState } from '@codeHimalaya/hooks/useContext';
 
@@ -58,7 +58,7 @@ const Layout = ({ children }: ILayout) => {
         onExitSidebar={onExitSidebar}
         isHovered={isHovered}
         width={isHovered ? LAYOUT_WIDTHS.LARGE : sidebarWidth}
-        isCollapse={!showSidebar}
+        isCollapsed={!showSidebar}
       />
       <Box height="100vh" maxH="100vh" overflowY="auto">
         <SidebarState.Provider value={{ showSidebar, setShowSidebar }}>

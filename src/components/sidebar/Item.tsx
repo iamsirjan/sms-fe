@@ -1,65 +1,109 @@
 import { Link as RouterLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ListItem, Link, Flex, Text } from '@chakra-ui/react';
+import { ListItem, Link, Text, Icon } from '@chakra-ui/react';
+import { Dispatch, ReactNode, SetStateAction } from 'react';
+import { RightArrowIcon } from '@codeHimalaya/assets/svgs';
 
 const Item = ({
   name,
   to,
-  icon,
+  ComponentIcon,
+  isCollapsed,
+  showDropdown,
+  setShowDropdown,
+  activeParent,
   active,
-  isCollapse,
   isChild,
+  children,
 }: {
   name: string;
   to: string;
-  icon?: React.ReactNode;
+  ComponentIcon: React.FC<React.SVGProps<SVGSVGElement>>;
+  isCollapsed?: boolean;
+
+  showDropdown?: boolean;
+  setShowDropdown?: Dispatch<SetStateAction<boolean | undefined>>;
+
+  activeParent?: boolean;
   active: boolean;
-  isCollapse?: boolean;
   isChild?: boolean;
+  children?: ReactNode;
 }) => {
   const { t } = useTranslation();
+
   if (location.pathname === to) active = true;
+
+  // The navItem should be active when,
+  // 1. active: the path in the url matches the url of the navItem
+  // 2. showDropdown: it is the child which is clicked when the parent navItem is in onOpen state
+  // 3. activeParent: it is the parent of the navItem with active children
+  const activeTab = active || showDropdown || activeParent;
+
   return (
-    <Link as={RouterLink} to={to} color={'white'}>
-      <ListItem
-        display={'flex'}
-        mr={4}
-        ml={isChild ? 10 : 4}
-        p={2}
-        mb={3}
-        borderRadius={'md'}
-        bgColor={active ? (isChild ? 'secondary.500' : 'primary.500') : ''}
-        transition="all ease-in-out"
-        color={active ? (isChild ? 'gray.200' : 'white') : 'gray.200'}
+    <>
+      <Link
+        as={RouterLink}
+        to={to}
+        color={'white'}
+        // there is a default textDecoration, to remove it ⬇️
         sx={{
-          'svg path': {
-            transition: 'all ease-in-out',
-            fill: `${active ? 'white' : ''}`,
-          },
           '&:hover': {
-            transition: 'all ease-in-out',
             textDecoration: 'none',
-            color: isChild ? 'gray.200' : 'white',
-            bgColor: isChild ? 'secondary.500' : 'primary.500',
-            'svg path': {
-              transition: 'all ease-in-out',
-              fill: `${name !== 'Logout' ? 'white' : ''}`,
-            },
           },
         }}
-        fontSize="md"
-        fontWeight="semibold"
       >
-        <Flex alignItems="center" justify={isCollapse ? 'center' : 'left'}>
-          {icon}
-          {!isCollapse && (
-            <Text ml={3} whiteSpace="nowrap">
-              {t(name)}
-            </Text>
+        <ListItem
+          display={'flex'}
+          alignItems={'center'}
+          gap={isCollapsed ? 1 : 2}
+          mr={4}
+          ml={{
+            base: isChild ? 4 : 2,
+            md: isChild ? 4 : 2,
+          }}
+          mb={3}
+          p={2}
+          borderRadius={'md'}
+          bgColor={
+            activeParent || showDropdown
+              ? 'primary.400'
+              : active
+              ? 'primary.500'
+              : ''
+          }
+          color={activeTab ? 'white' : 'gray.500'}
+          transition="all ease-in-out"
+          sx={{
+            '&:hover': {
+              bgColor: 'primary.300',
+              color: 'white',
+              'svg path': {
+                stroke: name !== 'Logout' ? 'white' : '',
+              },
+            },
+          }}
+          onClick={() => !!setShowDropdown && setShowDropdown((prev) => !prev)}
+          fontSize="md"
+          fontWeight="semibold"
+        >
+          <ComponentIcon strokeWidth={0} />
+          {!isCollapsed && <Text whiteSpace="nowrap">{t(name)}</Text>}
+
+          {(!!children || to === '') && (
+            <Icon
+              as={RightArrowIcon}
+              transform={showDropdown ? 'rotate(90deg)' : ''}
+              sx={{
+                path: {
+                  stroke: activeTab ? 'white' : '',
+                },
+              }}
+            />
           )}
-        </Flex>
-      </ListItem>
-    </Link>
+        </ListItem>
+      </Link>
+      {children}
+    </>
   );
 };
 
