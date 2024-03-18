@@ -3,7 +3,8 @@ import { NAVIGATION_ROUTES } from './routes.constant';
 import Dashboard from '@codeHimalaya/pages/Dashboard/index';
 import Layout from '@codeHimalaya/components/layouts/Layout';
 import Login from '@codeHimalaya/pages/Login/Login';
-import FormFields from '@codeHimalaya/pages/FormFields';
+import ButtonGroup from '@codeHimalaya/pages/Components/Buttons';
+import FormFields from '@codeHimalaya/pages/Components/FormFields';
 // import Dashboard from "@codeHimalaya/pages/Dashboard";
 
 const routes = [
@@ -16,10 +17,18 @@ const routes = [
     ),
   },
   {
-    path: NAVIGATION_ROUTES.FORM_FIELDS,
+    path: NAVIGATION_ROUTES.FORM_FIELD,
     element: (
       <Layout>
         <FormFields />
+      </Layout>
+    ),
+  },
+  {
+    path: NAVIGATION_ROUTES.BUTTON,
+    element: (
+      <Layout>
+        <ButtonGroup />
       </Layout>
     ),
   },

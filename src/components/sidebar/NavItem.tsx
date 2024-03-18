@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Flex, Text, Icon } from '@chakra-ui/react';
-import Item from './Item';
-import { RightArrowIcon } from '@codeHimalaya/assets/svgs';
+import Item from './item';
 
-const NavItem = ({ name, to, child, icon, isCollapse, visible }: INavItem) => {
-  const match =
-    location.pathname.match(/services/g) || location.pathname.match(/forum/g);
+const NavItem = ({ name, to, icon, child, visible, isCollapsed }: INavItem) => {
+  const [active, setActive] = useState(false);
 
   const activeParent = child?.some((item) => item.to === location.pathname);
-
-  const [active, setActive] = useState(false);
   const [showDropdown, setShowDropdown] = useState(activeParent);
+
+  // For the case you are deep nested into child element and you need to make the parent element in the sidebar to be active
+  const match =
+    location.pathname.match(/services/g) || location.pathname.match(/forum/g);
 
   useEffect(() => {
     setActive((!child && to === location.pathname) || to === `/${match?.[0]}`);
@@ -18,125 +17,64 @@ const NavItem = ({ name, to, child, icon, isCollapse, visible }: INavItem) => {
 
   return (
     <>
-      {visible ? (
-        child ? (
-          <>
-            <Flex
-              justifyContent="space-between"
-              alignItems="center"
-              p={2}
-              mx={4}
-              mb={3}
-              borderRadius={'md'}
-              bgColor={activeParent ? 'primary.500' : ''}
-              color={activeParent ? 'white' : ''}
-              transition="all ease-in-out"
-              cursor="pointer"
-              sx={{
-                'svg path': {
-                  transition: 'all ease-in-out',
-                  fill: `${activeParent ? 'white' : ''}`,
-                },
-                '&:hover': {
-                  transition: 'all ease-in-out',
-                  bgColor: 'primary.500',
-                  color: 'white',
-                  'svg path': {
-                    transition: 'all ease-in-out',
-                    fill: 'white',
-                  },
-                },
-              }}
-              fontSize="md"
-              fontWeight="semibold"
-              onClick={() => setShowDropdown(!showDropdown)}
-            >
-              <Flex
-                alignItems="center"
-                justify={isCollapse ? 'center' : 'left'}
-                sx={{
-                  '& *': {
-                    '&:hover': {
-                      transition: 'all ease-in-out',
-                      color: 'white',
-                    },
-                  },
-                }}
-              >
-                {icon}
-                {!isCollapse && (
-                  <Text ml={3} whiteSpace="nowrap">
-                    {name}
-                  </Text>
-                )}
-              </Flex>
-              {!isCollapse && (
-                <Icon
-                  as={RightArrowIcon}
-                  fontSize="xs"
-                  sx={{
-                    transform: showDropdown ? 'rotate(90deg)' : '',
-                    transition: '0.1s',
-                    '&:hover': {
-                      cursor: 'pointer',
-                      transition: '0.1s',
-                    },
-                  }}
-                />
-              )}
-            </Flex>
-            {showDropdown && !isCollapse && (
-              <Box>
+      {visible &&
+        (child ? (
+          <Item
+            active={active}
+            name={name}
+            to={to}
+            ComponentIcon={icon}
+            isCollapsed={isCollapsed}
+            // TODO: try to reduce this props
+            // by passing child as prop
+            activeParent={activeParent}
+            setShowDropdown={setShowDropdown}
+            showDropdown={showDropdown}
+          >
+            {showDropdown && (
+              <>
                 {child.map((c: INavItemChild) => {
                   return (
                     <React.Fragment key={c.name}>
-                      {c.visible ? (
+                      {/* TODO: lets check if we can refactor this optional chaining logic */}
+                      {c.visible && (
                         <Item
                           active={active}
                           name={c.name}
                           to={c.to}
-                          icon={c?.icon}
-                          isCollapse={isCollapse}
+                          ComponentIcon={c?.icon}
+                          isCollapsed={isCollapsed}
                           isChild={true}
                         />
-                      ) : (
-                        <></>
                       )}
                     </React.Fragment>
                   );
                 })}
-              </Box>
+              </>
             )}
-          </>
+          </Item>
         ) : (
           <Item
             active={active}
             name={name}
             to={to}
-            icon={icon}
-            isCollapse={isCollapse}
+            ComponentIcon={icon}
+            isCollapsed={isCollapsed}
           />
-        )
-      ) : (
-        <></>
-      )}
+        ))}
     </>
   );
 };
-
-interface INavItem {
-  visible: boolean;
-  name: string;
-  to: string;
+interface INavItem extends INavItemChild {
   child?: INavItemChild[];
-  icon?: React.ReactNode;
-  isCollapse?: boolean;
+  isCollapsed?: boolean;
 }
-
 interface INavItemChild {
   visible: boolean;
   name: string;
+  //   TODO: instead of making this string assign this to be amongst the navigation path
   to: string;
-  icon?: React.ReactNode;
+  //   TODO: intelligence for svg index suggestion
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 export default NavItem;
