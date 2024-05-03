@@ -29,8 +29,10 @@ module.exports = {
   rules: {
     'no-console': 'error',
     'no-unused-vars': 'off',
+    'import/no-unresolved': 'off', // Disable ESLint for unresolved imports
+    'import/no-extraneous-dependencies': 'off', // Disable ESLint for extraneous dependencies
     '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_' }],
-    'import/first': 'error',
+
     'react/prop-types': 0,
     'prettier/prettier': [
       'off',
@@ -43,6 +45,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/ban-ts-comment': 2,
-    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };

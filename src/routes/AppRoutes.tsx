@@ -3,11 +3,32 @@ import { NAVIGATION_ROUTES } from './routes.constant';
 import Dashboard from '@codeHimalaya/pages/Dashboard/index';
 import Layout from '@codeHimalaya/components/layouts/Layout';
 import Login from '@codeHimalaya/pages/Login/Login';
-import ButtonGroup from '@codeHimalaya/pages/Components/Buttons';
-import FormFields from '@codeHimalaya/pages/Components/FormFields';
-// import Dashboard from "@codeHimalaya/pages/Dashboard";
+import User from '@codeHimalaya/pages/User';
+import { Circle } from '@chakra-ui/react';
+import { Suspense } from 'react';
+import { useAuthProvider } from '@codehimalaya/authentication_service';
+import Admin from '@codeHimalaya/pages/Admin';
+const openRoutes = [
+  {
+    path: NAVIGATION_ROUTES.BASE,
+    element: <Login />,
+  },
+  {
+    path: NAVIGATION_ROUTES.NO_MATCH,
+    element: <Login />,
+  },
+];
 
 const routes = [
+  {
+    path: NAVIGATION_ROUTES.BASE,
+    element: (
+      <Layout>
+        <Dashboard />
+      </Layout>
+    ),
+  },
+
   {
     path: NAVIGATION_ROUTES.DASHBOARD,
     element: (
@@ -16,31 +37,32 @@ const routes = [
       </Layout>
     ),
   },
+
   {
-    path: NAVIGATION_ROUTES.FORM_FIELD,
+    path: NAVIGATION_ROUTES.ADMIN,
     element: (
       <Layout>
-        <FormFields />
+        <Admin />
       </Layout>
     ),
   },
   {
-    path: NAVIGATION_ROUTES.BUTTON,
+    path: NAVIGATION_ROUTES.HOME,
     element: (
       <Layout>
-        <ButtonGroup />
+        <User />
       </Layout>
     ),
-  },
-  {
-    path: NAVIGATION_ROUTES.LOGIN,
-    element: <Login />,
   },
 ];
 // const protectedRoutes = [];
 
 const AppRoutes = () => {
-  return useRoutes(routes);
+  const { isAuthenticated } = useAuthProvider();
+
+  const element = useRoutes(isAuthenticated ? routes : openRoutes);
+
+  return <Suspense fallback={<Circle />}>{element}</Suspense>;
 };
 
 export default AppRoutes;

@@ -10,11 +10,12 @@ import {
   Divider,
   Icon,
 } from '@chakra-ui/react';
-import { NotificationIcon } from '@codeHimalaya/assets/svgs';
 import { getSidebarState } from '@codeHimalaya/components/layouts/Layout';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { useAuthProvider } from '@codehimalaya/authentication_service';
+
 interface IBreadCrumb {
   items: { name: string; route: string }[];
   goBack?: string;
@@ -24,6 +25,8 @@ interface IBreadCrumb {
 export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { logout } = useAuthProvider();
+
   const { showSidebar, setShowSidebar } = getSidebarState();
 
   return (
@@ -77,17 +80,10 @@ export const BreadCrumb = ({ items, goBack, title }: IBreadCrumb) => {
             </BreadcrumbItem>
           ))}
         </Breadcrumb>
-        <Flex
-          bgColor={'white'}
-          // TODO: intelligence is not working for the value that is defined manually in the theme
-          borderRadius={'4xl'}
-          width={'48px'}
-          height={'48px'}
-          alignItems={'center'}
-          justifyContent={'center'}
-        >
-          <Icon as={NotificationIcon} fontSize="2xl"></Icon>
-        </Flex>
+
+        <Button onClick={logout} variant={'outline'}>
+          Logout
+        </Button>
         {goBack && (
           <Button
             size={'xs'}

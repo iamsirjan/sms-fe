@@ -1,99 +1,62 @@
-import { LoginIcon } from '@codeHimalaya/assets/svgs';
-import { Input } from '@codeHimalaya/components/form';
-import { Box, Button, Flex, Text, VStack } from '@chakra-ui/react';
-import { useForm } from 'react-hook-form';
-// TODO: finalize zod or yup
-// import * as yup from 'yup';
-// import { yupResolver } from '@hookform/resolvers/yup';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { toastSuccess } from '@codeHimalaya/service/service-toast';
+import { Box, Flex, Button, Text } from '@chakra-ui/react';
+import { useAuthProvider } from '@codehimalaya/authentication_service';
 
-export interface LoginDetails {
-  email: string;
-  password: string;
+function Login() {
+  return (
+    <Flex direction="column" align="center" minHeight="100vh" padding="2rem">
+      <NavBar />
+      <Flex
+        textAlign="center"
+        direction={'column'}
+        justifyContent={'center'}
+        alignItems={'center'}
+        minH={'50vh'}
+      >
+        <Text fontSize="3xl" fontWeight="bold" marginBottom="1rem">
+          Welcome to My Awesome App!
+        </Text>
+        <Text fontSize="xl">
+          This is some random UI content on the landing page.
+        </Text>
+      </Flex>
+      <Footer />
+    </Flex>
+  );
 }
 
-const defaultValues: LoginDetails = {
-  email: '',
-  password: '',
-};
+function NavBar() {
+  const { login } = useAuthProvider();
 
-/** YUP schema */
-// const schema = yup.object().shape({
-//   email: yup.string().required('Email is required'),
-//   password: yup.string().required('Password is required'),
-// });
-
-const schema = z.object({
-  email: z.string().min(1, 'Email is required'),
-  password: z.string().min(1, 'Password is required'),
-});
-
-const Login = () => {
-  const { control, handleSubmit } = useForm({
-    mode: 'onBlur',
-    defaultValues: defaultValues,
-    resolver: zodResolver(schema),
-  });
-
-  const onSubmitHandler = async (loginDetails: LoginDetails) => {
-    toastSuccess(
-      `email :${loginDetails.email} and password: ${loginDetails.password}`,
-    );
-    // alert(loginDetails);
-  };
   return (
-    <Box
-      display="flex"
-      justifyContent={'center'}
-      alignItems="center"
-      height={{ base: 'auto', md: '100vh' }}
-      m={4}
+    <Flex
+      width="100%"
+      justify="space-between"
+      align="center"
+      marginBottom="2rem"
     >
-      <Flex
-        flexDirection={{ base: 'column-reverse', md: 'row' }}
-        justifyContent={'space-between'}
+      <Text fontSize="2xl" fontWeight="bold">
+        My App
+      </Text>
+      <Button
+        variant={'outline'}
+        colorScheme="blue"
+        borderRadius={'6px'}
+        onClick={login}
       >
-        <Flex flex={1} flexDirection={'column'} justifyContent={'center'}>
-          <Flex
-            direction={{ base: 'column', md: 'row' }}
-            fontSize={'xl'}
-            fontWeight={'normal'}
-          >
-            <Text color={'black'}>{'Welcome to'}&nbsp;</Text>
-            <Text color={'primary.500'}>CodeHimalaya boilerplate code</Text>
-          </Flex>
-          <Text fontSize={'3xl'} fontWeight={'semibold'}>
-            {'Login'}
-          </Text>
+        Login
+      </Button>
+    </Flex>
+  );
+}
 
-          <form onSubmit={handleSubmit(onSubmitHandler)}>
-            <VStack pt={6} spacing={8}>
-              <Input name={'email'} label={'Email'} control={control} />
-              <Input
-                name={'password'}
-                label={'Password'}
-                type={'password'}
-                control={control}
-              />
-              <Button
-                type="submit"
-                width="full"
-                // isLoading={isLoading}
-              >
-                {'Login'}
-              </Button>
-            </VStack>
-          </form>
-        </Flex>
-
-        <Flex flex={1}>
-          <LoginIcon style={{ width: '100%' }} />
-        </Flex>
-      </Flex>
+function Footer() {
+  return (
+    <Box width="100%" textAlign="center" marginTop="auto">
+      <Text fontSize="sm" color="gray.500">
+        &copy; 2024 My Awesome App. All rights reserved.
+      </Text>
     </Box>
   );
-};
+}
 
 export default Login;

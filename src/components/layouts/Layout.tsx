@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useContext } from 'react';
 import { Box } from '@chakra-ui/react';
-import Sidebar from '@codeHimalaya/components/SideBar';
+import Sidebar from '@codeHimalaya/components/sidebar';
 import useWindowSize from '@codeHimalaya/hooks/useWindowResize';
 import { SidebarState } from '@codeHimalaya/hooks/useContext';
 
