@@ -7,7 +7,6 @@
     "@chakra-ui/react": "^2.8.1",
     "@ckeditor/ckeditor5-build-classic": "^39.0.2",
     "@ckeditor/ckeditor5-react": "^6.1.0",
-    "@codehimalaya/authentication_service": "^0.1.42",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.3.1",
@@ -41,6 +40,7 @@
     "prepare": "husky install",
     "prebuild": "yarn format && yarn lint",
     "commit": "git-cz",
+    "postinstall": "npx husky install",
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file --release-count 0",
     "theme": "chakra-cli tokens src/theme/index.ts",
     "theme:watch": "chakra-cli tokens src/theme/index.ts --watch"

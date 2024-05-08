@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Item from './Item';
+import Item from './item';
 
 const NavItem = ({ name, to, icon, child, visible, isCollapsed }: INavItem) => {
   const [active, setActive] = useState(false);

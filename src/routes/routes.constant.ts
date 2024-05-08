@@ -1,10 +1,7 @@
-/** NOTE: ------->  use "snake_case"  while naming the routes*/
 export const NAVIGATION_ROUTES = {
-  BASE: '/',
-  NO_MATCH: '*',
+  DASHBOARD: '/',
+  /** NOTE: ------->  use "snake_case"  while naming the routes*/
   BUTTON: '/button',
   FORM_FIELD: '/form_field',
-  HOME: '/home',
-  DASHBOARD: '/dashboard',
-  ADMIN: '/admin',
+  LOGIN: '/login',
 };

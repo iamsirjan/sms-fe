@@ -1,7 +1,0 @@
-export const CONFIG = {
-  CLIENT_ID: import.meta.env.VITE_APP_CLIENT_ID,
-  CODE_CHALLENGE: import.meta.env.VITE_APP_CODE_CHALLENGE,
-  CODE_CHALLENGE_METHOD: import.meta.env.VITE_APP_CODE_CHALLENGE_METHOD,
-  REDIRECT_URI: import.meta.env.VITE_APP_REDIRECT_URI,
-  AUTH_SERVER: import.meta.env.VITE_APP_AUTH_SERVER,
-};

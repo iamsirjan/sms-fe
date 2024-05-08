@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -19,13 +20,15 @@ const queryClient = new QueryClient({
 
 const Provider = ({ children }: IProvider) => {
   return (
-    <ChakraProvider theme={theme}>
-      <QueryClientProvider client={queryClient}>
-        <Toaster position="bottom-right" />
-        <HelmetProvider>{children}</HelmetProvider>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </ChakraProvider>
+    <BrowserRouter>
+      <ChakraProvider theme={theme}>
+        <QueryClientProvider client={queryClient}>
+          <Toaster position="bottom-right" />
+          <HelmetProvider>{children}</HelmetProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </ChakraProvider>
+    </BrowserRouter>
   );
 };
 

@@ -30,7 +30,7 @@
       "@codeHimalaya/theme/*": ["theme/*"]
     }
   },
-  "include": ["src", "types.ts", "types"],
+  "include": ["src", "types.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"
