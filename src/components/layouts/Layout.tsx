@@ -1,8 +1,9 @@
 import { useState, useEffect, useMemo, useContext } from 'react';
 import { Box } from '@chakra-ui/react';
-import Sidebar from '@codeHimalaya/components/SideBar';
+import Sidebar from '@codeHimalaya/components/sidebar';
 import useWindowSize from '@codeHimalaya/hooks/useWindowResize';
 import { SidebarState } from '@codeHimalaya/hooks/useContext';
+import TopBar from './TopBar';
 
 // Define the possible layout widths
 const LAYOUT_WIDTHS = {
@@ -60,7 +61,7 @@ const Layout = ({ children }: ILayout) => {
         width={isHovered ? LAYOUT_WIDTHS.LARGE : sidebarWidth}
         isCollapsed={!showSidebar}
       />
-      <Box height="100vh" maxH="100vh" overflowY="auto">
+      <Box height="100vh" maxH="100vh" overflowY="auto" background={'#F5F5F5'}>
         <SidebarState.Provider value={{ showSidebar, setShowSidebar }}>
           <Box
             py={6}
@@ -68,6 +69,7 @@ const Layout = ({ children }: ILayout) => {
             pb={40}
             sx={{ '&::-webkit-scrollbar': { display: 'none' } }}
           >
+            <TopBar />
             {children}
           </Box>
         </SidebarState.Provider>

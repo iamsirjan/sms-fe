@@ -1,36 +1,27 @@
-import { LoginIcon } from '@codeHimalaya/assets/svgs';
 import { Input } from '@codeHimalaya/components/form';
 import { Box, Button, Flex, Text, VStack } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
-// TODO: finalize zod or yup
-// import * as yup from 'yup';
-// import { yupResolver } from '@hookform/resolvers/yup';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { toastSuccess } from '@codeHimalaya/service/service-toast';
+import { useLoginMutation } from '@codeHimalaya/service/service-auth';
 
 export interface LoginDetails {
-  email: string;
+  username: string;
   password: string;
 }
 
 const defaultValues: LoginDetails = {
-  email: '',
+  username: '',
   password: '',
 };
 
-/** YUP schema */
-// const schema = yup.object().shape({
-//   email: yup.string().required('Email is required'),
-//   password: yup.string().required('Password is required'),
-// });
-
 const schema = z.object({
-  email: z.string().min(1, 'Email is required'),
+  username: z.string().min(1, 'Username is required'),
   password: z.string().min(1, 'Password is required'),
 });
 
 const Login = () => {
+  const login = useLoginMutation();
   const { control, handleSubmit } = useForm({
     mode: 'onBlur',
     defaultValues: defaultValues,
@@ -38,59 +29,47 @@ const Login = () => {
   });
 
   const onSubmitHandler = async (loginDetails: LoginDetails) => {
-    toastSuccess(
-      `email :${loginDetails.email} and password: ${loginDetails.password}`,
-    );
-    // alert(loginDetails);
+    await login.mutateAsync({
+      username: loginDetails.username,
+      password: loginDetails.password,
+    });
   };
   return (
     <Box
       display="flex"
+      flexDirection={'column'}
       justifyContent={'center'}
       alignItems="center"
       height={{ base: 'auto', md: '100vh' }}
-      m={4}
     >
-      <Flex
-        flexDirection={{ base: 'column-reverse', md: 'row' }}
-        justifyContent={'space-between'}
-      >
-        <Flex flex={1} flexDirection={'column'} justifyContent={'center'}>
-          <Flex
-            direction={{ base: 'column', md: 'row' }}
-            fontSize={'xl'}
-            fontWeight={'normal'}
-          >
-            <Text color={'black'}>{'Welcome to'}&nbsp;</Text>
-            <Text color={'primary.500'}>CodeHimalaya boilerplate code</Text>
-          </Flex>
+      <Flex>
+        <form onSubmit={handleSubmit(onSubmitHandler)}>
           <Text fontSize={'3xl'} fontWeight={'semibold'}>
             {'Login'}
           </Text>
-
-          <form onSubmit={handleSubmit(onSubmitHandler)}>
-            <VStack pt={6} spacing={8}>
-              <Input name={'email'} label={'Email'} control={control} />
-              <Input
-                name={'password'}
-                label={'Password'}
-                type={'password'}
-                control={control}
-              />
-              <Button
-                type="submit"
-                width="full"
-                // isLoading={isLoading}
-              >
-                {'Login'}
-              </Button>
-            </VStack>
-          </form>
-        </Flex>
-
-        <Flex flex={1}>
-          <LoginIcon style={{ width: '100%' }} />
-        </Flex>
+          <VStack pt={6} spacing={8}>
+            <Input
+              name={'username'}
+              label={'Email'}
+              control={control}
+              w={'full'}
+            />
+            <Input
+              name={'password'}
+              label={'Password'}
+              type={'password'}
+              width={'full'}
+              control={control}
+            />
+            <Button
+              type="submit"
+              width="full"
+              // isLoading={isLoading}
+            >
+              {'Login'}
+            </Button>
+          </VStack>
+        </form>
       </Flex>
     </Box>
   );

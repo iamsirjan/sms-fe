@@ -2,9 +2,9 @@ import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
 import { codeHimalaya_colors } from './color';
 
 const baseStyles = {
-  px: 4,
-  borderRadius: '2xl',
+  borderRadius: '11px',
   transition: 'all 300ms ease-in-out',
+  width: 'fit-content',
 };
 
 const primary = defineStyle({
@@ -28,10 +28,25 @@ const outline = defineStyle({
   borderColor: codeHimalaya_colors.primary[500],
 });
 
+const danger = defineStyle({
+  ...baseStyles,
+  background: codeHimalaya_colors.red[100],
+  color: codeHimalaya_colors.white,
+  border: '1px solid',
+
+  _hover: {
+    // background: codeHimalaya_colors.white,
+    // color: codeHimalaya_colors.red[100],
+    // border: '1px solid',
+    // borderColor: codeHimalaya_colors.red[100],
+  },
+});
+
 export const buttonTheme = defineStyleConfig({
   variants: {
     primary,
     outline,
+    danger,
   },
   sizes: {
     xs: {
@@ -47,5 +62,5 @@ export const buttonTheme = defineStyleConfig({
       py: 4,
     },
   },
-  defaultProps: { variant: 'primary', size: 'lg' },
+  defaultProps: { variant: 'primary', size: 'md' },
 });

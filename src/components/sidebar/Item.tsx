@@ -31,8 +31,12 @@ const Item = ({
 }) => {
   const { t } = useTranslation();
 
-  if (location.pathname === to) active = true;
+  const pathRegex = new RegExp(`^${to}(\/.*)?$`);
 
+  // Check if the current path matches the regex
+  if (pathRegex.test(location.pathname)) {
+    active = true;
+  }
   // The navItem should be active when,
   // 1. active: the path in the url matches the url of the navItem
   // 2. showDropdown: it is the child which is clicked when the parent navItem is in onOpen state

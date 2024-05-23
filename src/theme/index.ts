@@ -6,6 +6,7 @@ import { fontSizes } from './fontsize';
 export const theme = extendTheme({
   fontSizes,
   colors,
+
   borderRadius: {
     radii: {
       none: '0',
@@ -25,6 +26,9 @@ export const theme = extendTheme({
 
       full: '9999px',
     },
+  },
+  body: {
+    background: 'red',
   },
   components: {
     Button: buttonTheme,

@@ -1,8 +1,8 @@
 import { Box, List, ListItem, Link } from '@chakra-ui/react';
 import { NAVIGATION_ROUTES } from '@codeHimalaya/routes/routes.constant';
 import { Link as RouterLink } from 'react-router-dom';
-import NavItem from './navItem';
-import { navItems } from './navItemList';
+import NavItem from './NavItem';
+import { navItems } from './NavItemList';
 import { webkit_scrollbar } from '../style';
 
 const Sidebar = ({

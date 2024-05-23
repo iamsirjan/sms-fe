@@ -45,4 +45,7 @@ export const codeHimalaya_colors = {
     100: '#EDF2F7',
     50: '#F7FAFC',
   },
+  red: {
+    100: '#F32013',
+  },
 };

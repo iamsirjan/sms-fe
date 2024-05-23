@@ -7,9 +7,9 @@ import {
 } from '@chakra-ui/react';
 import { FieldValues, useController } from 'react-hook-form';
 import { IInputField } from './interface';
-import Text from './text';
 import { Type } from './constants';
 import { Password } from './password';
+import Text from './text';
 
 const Input = <T extends FieldValues>(props: IInputField<T>) => {
   const {
@@ -40,7 +40,7 @@ const Input = <T extends FieldValues>(props: IInputField<T>) => {
             {label} {required && <span style={{ color: 'red' }}>&nbsp;*</span>}
           </FormLabel>
         )}
-        <FieldComponent field={field} {...rest} />
+        <FieldComponent type={type} field={field} {...rest} />
       </Box>
       {error && (
         <Flex justifyContent={'space-between'}>
